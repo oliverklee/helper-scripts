@@ -28,3 +28,11 @@ function ensure_clean_working_directory {
     linefeed
   fi
 }
+
+# Ensures that the given remote exists.
+function ensure_remote_exists {
+  if ! git config "remote.$1.url" > /dev/null; then
+    error "Remote \"$1\" is not defined."
+    exit 1
+  fi
+}
