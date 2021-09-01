@@ -5,6 +5,7 @@
 !/LICENSE
 !/README.md
 !/colors.sh
+!/fstrim-all
 !/git-tools.sh
 !/kwin-restart
 !/memflush

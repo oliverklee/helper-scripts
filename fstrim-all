@@ -1,0 +1,18 @@
+#!/bin/bash
+
+#
+# Trims all mounted ext4 partitions.
+#
+
+source 'output.sh'
+
+write 'Trimming all ext4 partitions …'
+
+partitions=$(mount | grep -P "type ext4" | awk '{print $3}')
+for partition in $partitions
+do
+  sudo fstrim -v "$partition"
+done
+
+success 'Done.'
+linefeed
