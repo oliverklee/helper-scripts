@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#
+# This file provides functions for outputting colored status messages.
+#
+
 source 'colors.sh'
 
 # Outputs a blank line.
