@@ -6,7 +6,7 @@
 
 source 'output.sh'
 
-write 'Trimming all ext4 partitions …'
+echo 'Trimming all ext4 partitions …'
 
 partitions=$(mount | grep -P "type ext4" | awk '{print $3}')
 for partition in $partitions

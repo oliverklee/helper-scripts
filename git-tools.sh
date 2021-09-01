@@ -17,7 +17,7 @@ function ensure_git {
 
 # Ensures that the working directory is clean.
 function ensure_clean_working_directory {
-  write 'Checking if the working tree is clean …'
+  echo 'Checking if the working tree is clean …'
   if [ -n "$(git status --porcelain)" ]; then
     error 'There are uncommitted changes:'
     linefeed
@@ -39,7 +39,7 @@ function ensure_remote_exists {
 
 # Ensures that the "origin" remote exists.
 function ensure_origin_exists {
-  write 'Checking that the "origin" remote exists …'
+  echo 'Checking that the "origin" remote exists …'
   ensure_remote_exists 'origin'
   success 'Okay.'
   linefeed
@@ -47,7 +47,7 @@ function ensure_origin_exists {
 
 # Ensures that the "origin" and "upstream" remotes exist.
 function ensure_origin_and_upstream_exist {
-  write 'Checking that the "origin" and "upstream" remotes exist …'
+  echo 'Checking that the "origin" and "upstream" remotes exist …'
   ensure_remote_exists 'origin'
   ensure_remote_exists 'upstream'
   success 'Okay.'
@@ -56,21 +56,21 @@ function ensure_origin_and_upstream_exist {
 
 # Determines the default branch puts it in the constant "GIT_BRANCH".
 function determine_default_branch {
-  write 'Determining the default branch …'
+  echo 'Determining the default branch …'
 
   main_present=$(branch_exists 'main')
   if [ -n "${main_present}" ]; then
-    write '"main" branch present: yes'
+    echo '"main" branch present: yes'
     GIT_BRANCH='main'
   else
-    write '"main" branch present: no'
+    echo '"main" branch present: no'
   fi;
   master_present=$(branch_exists 'master')
   if [ -n "${master_present}" ]; then
-    write '"master" branch present: yes'
+    echo '"master" branch present: yes'
     GIT_BRANCH='master'
   else
-    write '"master" branch present: no'
+    echo '"master" branch present: no'
   fi;
 
   if [ -z "${main_present}${master_present}" ]; then
@@ -103,7 +103,7 @@ function ensure_branch_exists {
 
 # Switches to the given branch and pulls it.
 function switch_and_pull {
-  write "Switching to the $1 branch and pulling it …"
+  echo "Switching to the $1 branch and pulling it …"
   git switch "$1"
   git pull
   success 'Done.'
@@ -112,7 +112,7 @@ function switch_and_pull {
 
 # Runs "git remote prune origin".
 function prune {
-  write 'Pruning …'
+  echo 'Pruning …'
   git remote prune origin
   success 'Done.'
   linefeed
@@ -120,7 +120,7 @@ function prune {
 
 # Synchronizes the given branch of a fork with upstream.
 function synchronize_fork {
-  write 'Synchronizing the fork with upstream …'
+  echo 'Synchronizing the fork with upstream …'
   git switch "$1"
   git fetch origin
   git fetch upstream
