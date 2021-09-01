@@ -4,3 +4,5 @@
 !/.gitignore
 !/LICENSE
 !/README.md
+!/colors.sh
+!/shebang.sh
