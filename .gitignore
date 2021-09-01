@@ -10,7 +10,17 @@
 !/kwin-restart
 !/memflush
 !/output.sh
+!/p55
+!/p56
+!/p70
+!/p71
+!/p72
+!/p73
+!/p74
+!/p80
+!/p81
 !/package-cleanup
+!/php-version-switcher.sh
 !/pull
 !/shebang.sh
 !/upstream
