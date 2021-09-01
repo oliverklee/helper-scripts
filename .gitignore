@@ -6,6 +6,7 @@
 !/README.md
 !/colors.sh
 !/git-tools.sh
+!/kwin-restart
 !/memflush
 !/output.sh
 !/package-cleanup

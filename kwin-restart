@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Restarts kwin. This is helpful after it has crashed.
+# (In recent Plasma versions, this is not needed anymore as kwin automatically gets restarted after a crash.)
+
+source 'output.sh'
+
+write 'Restarting kwin …'
+
+kwin --replace &
+
+success 'Done.'
