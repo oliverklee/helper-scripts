@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Pulls either the "main" or "master" branch.
+
+source 'output.sh'
+source 'git-tools.sh'
+
+ensure_git
+ensure_clean_working_directory
+ensure_origin_exists
+
+determine_default_branch
+switch_and_pull "${GIT_BRANCH}"
+
+prune
