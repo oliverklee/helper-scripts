@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Purges all deb packages that are in a "configured, but not installed" state.
+# This is particularly helpful after an Ubuntu upgrade.
+
+dpkg -l | awk '/^rc/ {system("sudo aptitude -y purge "$2"")}'
