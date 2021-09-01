@@ -7,6 +7,7 @@
 !/colors.sh
 !/git-tools.sh
 !/output.sh
-!/pull
 !/package-cleanup
+!/pull
 !/shebang.sh
+!/upstream

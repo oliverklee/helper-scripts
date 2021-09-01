@@ -45,6 +45,15 @@ function ensure_origin_exists {
   linefeed
 }
 
+# Ensures that the "origin" and "upstream" remotes exist.
+function ensure_origin_and_upstream_exist {
+  write 'Checking that the "origin" and "upstream" remotes exist …'
+  ensure_remote_exists 'origin'
+  ensure_remote_exists 'upstream'
+  success 'Okay.'
+  linefeed
+}
+
 # Determines the default branch puts it in the constant "GIT_BRANCH".
 function determine_default_branch {
   write 'Determining the default branch …'
@@ -96,6 +105,18 @@ function switch_and_pull {
 function prune {
   write 'Pruning …'
   git remote prune origin
+  success 'Done.'
+  linefeed
+}
+
+# Synchronizes the given branch of a fork with upstream.
+function synchronize_fork {
+  write 'Synchronizing the fork with upstream …'
+  git switch "$1"
+  git fetch origin
+  git fetch upstream
+  git rebase "upstream/$1"
+  git push
   success 'Done.'
   linefeed
 }

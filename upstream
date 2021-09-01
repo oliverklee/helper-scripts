@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Synchronizes a git fork.
+
+source 'output.sh'
+source 'git-tools.sh'
+
+ensure_git
+ensure_clean_working_directory
+
+ensure_origin_and_upstream_exist
+
+determine_default_branch
+
+synchronize_fork "$GIT_BRANCH"
+
+prune
