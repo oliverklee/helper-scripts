@@ -92,6 +92,15 @@ function branch_exists {
   git show-ref "refs/heads/$1"
 }
 
+# Ensures that the given branch exists
+function ensure_branch_exists {
+  exists=$(branch_exists "$1")
+  if [ -z "${exists}" ]; then
+    error "The branch \"$1\$ does not exists. Maybe you are using the wrong script?"
+    exit 1
+  fi
+}
+
 # Switches to the given branch and pulls it.
 function switch_and_pull {
   write "Switching to the $1 branch and pulling it …"

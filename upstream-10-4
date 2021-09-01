@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Synchronizes a git fork where the default branch is "10.4" (instead of "main" or "master".
+
+source 'output.sh'
+source 'git-tools.sh'
+
+ensure_git
+ensure_clean_working_directory
+
+ensure_origin_and_upstream_exist
+
+GIT_BRANCH='10.4'
+ensure_branch_exists "${GIT_BRANCH}"
+synchronize_fork "${GIT_BRANCH}"
+
+prune
