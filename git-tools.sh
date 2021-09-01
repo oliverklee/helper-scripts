@@ -58,27 +58,27 @@ function ensure_origin_and_upstream_exist {
 function determine_default_branch {
   write 'Determining the default branch …'
 
-  MAIN_PRESENT=$(branch_exists 'main')
-  if [ -n "${MAIN_PRESENT}" ]; then
+  main_present=$(branch_exists 'main')
+  if [ -n "${main_present}" ]; then
     write '"main" branch present: yes'
     GIT_BRANCH='main'
   else
     write '"main" branch present: no'
   fi;
-  MASTER_PRESENT=$(branch_exists 'master')
-  if [ -n "${MASTER_PRESENT}" ]; then
+  master_present=$(branch_exists 'master')
+  if [ -n "${master_present}" ]; then
     write '"master" branch present: yes'
     GIT_BRANCH='master'
   else
     write '"master" branch present: no'
   fi;
 
-  if [ -z "${MAIN_PRESENT}${MASTER_PRESENT}" ]; then
+  if [ -z "${main_present}${master_present}" ]; then
     error 'Neither a "main" nor a "master" branch are present. Existing branches:'
     git branch
     exit 1
   fi
-  if [ -n "${MAIN_PRESENT}" ] && [ -n "${MASTER_PRESENT}" ]; then
+  if [ -n "${main_present}" ] && [ -n "${master_present}" ]; then
     error 'Both a "main" nor a "master" branch are present. There can only be one.'
     exit 1
   fi
