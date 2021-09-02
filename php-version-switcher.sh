@@ -54,7 +54,7 @@ function disable_other_mods {
 function enable_mod {
   echo "Enabling mod_php for PHP ${1} …"
   sudo a2enmod "php{$1}"
-  sudo service apache2 restart
+  sudo systemctl restart apache2
   success 'Done.'
   linefeed
 }
