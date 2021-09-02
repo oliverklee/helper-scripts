@@ -97,6 +97,7 @@ function sync_backup_files {
   time sudo nice -n 19 rsync -aESW --no-compress --stats --inplace "${BACKUP2L_LOCAL_DIR}" "${BACKUP2L_EXTERNAL_DIR}"
 
   success 'Done.'
+  linefeed
 }
 
 read_configuration
