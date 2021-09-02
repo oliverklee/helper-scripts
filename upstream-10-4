@@ -10,8 +10,8 @@ ensure_clean_working_directory
 
 ensure_origin_and_upstream_exist
 
-GIT_BRANCH='10.4'
-ensure_branch_exists "${GIT_BRANCH}"
-synchronize_fork "${GIT_BRANCH}"
+GIT_DEFAULT_BRANCH='10.4'
+ensure_branch_exists "${GIT_DEFAULT_BRANCH}"
+synchronize_fork "${GIT_DEFAULT_BRANCH}"
 
 prune

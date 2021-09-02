@@ -12,6 +12,6 @@ ensure_origin_and_upstream_exist
 
 determine_default_branch
 
-synchronize_fork "$GIT_BRANCH"
+synchronize_fork "${GIT_DEFAULT_BRANCH}"
 
 prune

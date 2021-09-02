@@ -10,6 +10,6 @@ ensure_clean_working_directory
 ensure_origin_exists
 
 determine_default_branch
-switch_and_pull "${GIT_BRANCH}"
+switch_and_pull "${GIT_DEFAULT_BRANCH}"
 
 prune

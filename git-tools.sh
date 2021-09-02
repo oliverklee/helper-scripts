@@ -54,21 +54,21 @@ function ensure_origin_and_upstream_exist {
   linefeed
 }
 
-# Determines the default branch puts it in the constant "GIT_BRANCH".
+# Determines the default branch puts it in the constant "GIT_DEFAULT_BRANCH".
 function determine_default_branch {
   echo 'Determining the default branch …'
 
   main_present=$(branch_exists 'main')
   if [ -n "${main_present}" ]; then
     echo '"main" branch present: yes'
-    GIT_BRANCH='main'
+    GIT_DEFAULT_BRANCH='main'
   else
     echo '"main" branch present: no'
   fi;
   master_present=$(branch_exists 'master')
   if [ -n "${master_present}" ]; then
     echo '"master" branch present: yes'
-    GIT_BRANCH='master'
+    GIT_DEFAULT_BRANCH='master'
   else
     echo '"master" branch present: no'
   fi;
@@ -83,7 +83,7 @@ function determine_default_branch {
     exit 1
   fi
 
-  success "Using the \"${GIT_BRANCH}\" branch."
+  success "Using the \"${GIT_DEFAULT_BRANCH}\" branch."
   linefeed
 }
 
@@ -136,19 +136,19 @@ function current_branch {
 }
 
 # Exits if the default branch is currently checked out.
-# (Assumes that GIT_BRANCH already has been set via determine_default_branch).
+# (Assumes that GIT_DEFAULT_BRANCH already has been set via determine_default_branch).
 function abort_if_on_default_branch {
   current_branch=$(current_branch)
-  if [ "${current_branch}" == "${GIT_BRANCH}" ]; then
+  if [ "${current_branch}" == "${GIT_DEFAULT_BRANCH}" ]; then
     notice 'Already on the default branch. Exiting.'
     exit 0
   fi
 }
 
 # Rebases the current branch on top of the default branch.
-# (Assumes that GIT_BRANCH already has been set via determine_default_branch).
+# (Assumes that GIT_DEFAULT_BRANCH already has been set via determine_default_branch).
 function rebase_on_default_branch {
-  echo "Rebasing on top of \"${GIT_BRANCH}\" …"
-  git rebase "${GIT_BRANCH}"
+  echo "Rebasing on top of \"${GIT_DEFAULT_BRANCH}\" …"
+  git rebase "${GIT_DEFAULT_BRANCH}"
   success 'Done.'
 }
