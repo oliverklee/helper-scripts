@@ -1,9 +1,12 @@
 /*
+/backup-sync.conf
 /composer
 /symfony
 !/.gitignore
 !/LICENSE
 !/README.md
+!/backup-sync
+!/backup-sync.conf.dist
 !/colors.sh
 !/fstrim-all
 !/git-tools.sh

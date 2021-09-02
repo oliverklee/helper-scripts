@@ -1,0 +1,28 @@
+#!/bin/bash
+
+#
+# Configuration file for the "backup-sync" script.
+# Use this file as a template, copy it to "backup-sync.conf", and set the constants as needed.
+#
+
+# UUID of the external backup drive to which the data will by synced
+EXTERNAL_DRIVE_UUID='d4914656-998c-4d57-b468-f8b65696e4a8'
+
+# mountpoint of the external backup drive that has the UUID configured in EXTERNAL_DRIVE_UUID (without the trailing slash)
+EXTERNAL_DRIVE_MOUNTPOINT='/ext-backup'
+
+# the directory on the external disk for backups of important files from /etc, must include the trailing slash
+EXTERNAL_CONFIGURATION_DIR="${EXTERNAL_DRIVE_MOUNTPOINT}/configuration/"
+
+# configuration files from /etc that should be backuped to EXTERNAL_CONFIGURATION_DIR
+CONFIGURATION_FILES_TO_BACKUP='backup2l.conf fstab group passwd'
+
+# directories that should be backuped separately to EXTERNAL_DRIVE_MOUNTPOINT (with the leading and trailing slash)
+DIRECTORIES_TO_BACKUP='/etc/ /home/ /opt/ /root/ /usr/local/ /var/lib/mysql/'
+
+# the local directory where backup2l stores its files (including the leading and trailing slash)
+BACKUP2L_LOCAL_DIR='/backup/raw/'
+
+# the directory on the external drive to which the backup2l files will be copied
+# (including the leading and trailing slash)
+BACKUP2L_EXTERNAL_DIR="${EXTERNAL_DRIVE_MOUNTPOINT}/raw/"

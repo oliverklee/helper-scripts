@@ -1,0 +1,109 @@
+#!/bin/bash
+
+#
+# Synchronizes files to an external backup disk.
+#
+
+source 'output.sh'
+
+# Checks that the configuration file exists, reads it, and checks that all important constants are set.
+function read_configuration {
+  CONFIGURATION_FILE='backup-sync.conf'
+  if [ ! -f "${CONFIGURATION_FILE}" ]; then
+    error "The configuration file \"${CONFIGURATION_FILE}\" does not exist."
+    error "Please create it as a copy of \"${CONFIGURATION_FILE}.dist\"."
+    exit 1
+  fi
+
+  source "${CONFIGURATION_FILE}"
+
+  IMPORTANT_VARIABLES='EXTERNAL_DRIVE_UUID EXTERNAL_DRIVE_MOUNTPOINT EXTERNAL_CONFIGURATION_DIR '
+  IMPORTANT_VARIABLES+='CONFIGURATION_FILES_TO_BACKUP DIRECTORIES_TO_BACKUP BACKUP2L_LOCAL_DIR BACKUP2L_EXTERNAL_DIR'
+  for variable in ${IMPORTANT_VARIABLES}; do
+    echo "Checking ${variable} …"
+    if [ -z "${!variable}" ]; then
+      error "The configuration variable "${variable}" is not set."
+      exit 1
+    fi
+  done
+}
+
+# Checks that the external drive is connected, and mounts it.
+function mount_external_drive {
+  echo 'Checking for external drive …'
+
+  if [ ! -L "/dev/disk/by-uuid/${EXTERNAL_DRIVE_UUID}" ]; then
+      notice "The drive with the UUID ${EXTERNAL_DRIVE_UUID} is not connected. Exiting."
+      exit 1
+  else
+    success 'Connected: OK'
+    linefeed
+  fi
+
+  echo 'Mounting external drive …'
+  sudo mount "${EXTERNAL_DRIVE_MOUNTPOINT}"
+  success 'Done.'
+  linefeed
+}
+
+# Unmounts the external drive.
+function unmount_external_drive {
+  echo 'Unmounting external drive …'
+  sudo umount "${EXTERNAL_DRIVE_MOUNTPOINT}"
+  success 'Done.'
+  linefeed
+}
+
+# Copies some configuration files from /etc to the external disk. Also creates the target directory is necessary.
+function backup_configuration_files {
+  if [ ! -d "${EXTERNAL_CONFIGURATION_DIR}" ]; then
+    echo 'Creating configuration directory …'
+    mkdir "${EXTERNAL_CONFIGURATION_DIR}"
+
+    if [ ! -d "${EXTERNAL_CONFIGURATION_DIR}" ]; then
+      error "The directory ${EXTERNAL_CONFIGURATION_DIR} could not be created."
+      exit 1
+    else
+      success 'Done.'
+      linefeed
+    fi
+  fi
+
+  echo 'Copying configuration files …'
+  for filename in ${CONFIGURATION_FILES_TO_BACKUP}; do
+      echo "- ${filename}"
+      sudo cp -a "/etc/${filename}" "${EXTERNAL_CONFIGURATION_DIR}"
+  done
+  success 'Done.'
+  linefeed
+}
+
+# Copies some directories to the external disk.
+function backup_directories {
+  echo 'Syncing directories …'
+  for dirname in ${DIRECTORIES_TO_BACKUP}; do
+      echo "- ${dirname}"
+      time sudo nice -n 19 rsync -aES --no-compress --delete --inplace --stats "${dirname}" "${EXTERNAL_DRIVE_MOUNTPOINT}${dirname}"
+      linefeed
+  done
+  success 'Done.'
+  linefeed
+}
+
+# Sync the backup2l backup files.
+function sync_backup_files {
+  echo 'Syncing the backup2l files …'
+
+  time sudo nice -n 19 rsync -aESW --no-compress --stats --inplace "${BACKUP2L_LOCAL_DIR}" "${BACKUP2L_EXTERNAL_DIR}"
+
+  success 'Done.'
+}
+
+read_configuration
+mount_external_drive
+
+backup_configuration_files
+backup_directories
+sync_backup_files
+
+unmount_external_drive

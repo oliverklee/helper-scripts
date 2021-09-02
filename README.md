@@ -22,6 +22,7 @@ Most of these scripts probably are Ubuntu-specific.
 
 | Script            | Description                                           |
 |-------------------|-------------------------------------------------------|
+| `backup-sync`     | synchronizes files to an external backup disk         |
 | `fstrim-all`      | SSD-trims all ext partitions                          |
 | `kwin-restart`    | restarts `kwin` (e.g., after a crash)                 |
 | `memflush`        | flushes all memory caches and the swap file/partition |
@@ -39,9 +40,11 @@ Most of these scripts probably are Ubuntu-specific.
 
 ### Other files
 
-| File         | Description                                 |
-|--------------|---------------------------------------------|
-| `shebang.sh` | copy'n'paste template for the shell shebang |
+| File                    | Description                                           |
+|-------------------------|-------------------------------------------------------|
+| `shebang.sh`            | copy'n'paste template for the shell shebang           |
+| `backup-sync.conf`      | the configuration file for `backup-sync` (not in git) |
+| `backup-sync.conf.dist` | template for configuration file for `backup-sync`     |
 
 ## Installation
 
