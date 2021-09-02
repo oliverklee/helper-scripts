@@ -36,7 +36,12 @@ Most of these scripts probably are Ubuntu-specific.
 | `git-tools.sh`            | provides functions for the git-related scripts         |
 | `output.sh`               | provides functions for outputting status messages      |
 | `php-version-switcher.sh` | switches between the PHP versions                      |
-| `shebang.sh`              | copy'n'paste template for the shell shebang            |
+
+### Other files
+
+| File         | Description                                 |
+|--------------|---------------------------------------------|
+| `shebang.sh` | copy'n'paste template for the shell shebang |
 
 ## Installation
 
