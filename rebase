@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Rebases the current git branch on top of the default branch.
+
+source 'output.sh'
+source 'git-tools.sh'
+
+ensure_git
+ensure_clean_working_directory
+
+determine_default_branch
+abort_if_on_default_branch
+rebase_on_default_branch

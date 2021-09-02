@@ -22,6 +22,7 @@
 !/package-cleanup
 !/php-version-switcher.sh
 !/pull
+!/rebase
 !/shebang.sh
 !/upstream
 !/upstream-10-4

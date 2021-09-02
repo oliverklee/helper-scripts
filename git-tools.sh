@@ -129,3 +129,26 @@ function synchronize_fork {
   success 'Done.'
   linefeed
 }
+
+# Echos the current branch.
+function current_branch {
+  git rev-parse --symbolic-full-name --abbrev-ref HEAD
+}
+
+# Exits if the default branch is currently checked out.
+# (Assumes that GIT_BRANCH already has been set via determine_default_branch).
+function abort_if_on_default_branch {
+  current_branch=$(current_branch)
+  if [ "${current_branch}" == "${GIT_BRANCH}" ]; then
+    notice 'Already on the default branch. Exiting.'
+    exit 0
+  fi
+}
+
+# Rebases the current branch on top of the default branch.
+# (Assumes that GIT_BRANCH already has been set via determine_default_branch).
+function rebase_on_default_branch {
+  echo "Rebasing on top of \"${GIT_BRANCH}\" …"
+  git rebase "${GIT_BRANCH}"
+  success 'Done.'
+}

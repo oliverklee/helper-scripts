@@ -20,3 +20,8 @@ function success {
 function error {
   echo -e "${RED}$1${NO_COLOR}"
 }
+
+# Outputs the provided string as a notice status message.
+function notice {
+  echo -e "${YELLOW}$1${NO_COLOR}"
+}
