@@ -37,6 +37,26 @@ Most of these scripts probably are Ubuntu-specific.
 | `php-version-switcher.sh` | switches between the PHP versions                      |
 | `shebang.sh`              | copy'n'paste template for the shell shebang            |
 
+## Installation
+
+The `.gitignore` will ignore all existing files in your `~/bin`, making this
+repository safe to use next to your own scripts:
+
+1. Rename `~/bin` to something like `~/bin-backup`.
+2. Clone this repository to `~/bin`.
+3. Move all your files from `~/bin-backup` to `~/bin`.
+4. Delete `~/bin-backup`.
+
+Or as shell commands:
+
+```shell
+cd
+mv bin bin-backup
+git clone https://github.com/oliverklee/helper-scripts.git bin
+mv bin-backup/* bin/
+rmdir bin
+```
+
 ## Contributing
 
 I'll greatly appreciate pull requests that fix bugs or make the scripts more
