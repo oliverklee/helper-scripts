@@ -11,7 +11,7 @@ and come with all kinds of safeguards.
 
 | Script            | Description                                        |
 |-------------------|----------------------------------------------------|
-| `pull`            | pulls the default branch                           |
+| `main`            | switches to the default branch and pulls it        |
 | `rebase`          | rebases the current branch on the default branch   |
 | `upstream`        | keeps a git fork in sync                           |
 | `upstream-10-4`   | like `upstream`, but with `10.4` as default branch |

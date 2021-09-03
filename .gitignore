@@ -11,6 +11,7 @@
 !/fstrim-all
 !/git-tools.sh
 !/kwin-restart
+!/main
 !/memflush
 !/output.sh
 !/p55
@@ -24,7 +25,6 @@
 !/p81
 !/package-cleanup
 !/php-version-switcher.sh
-!/pull
 !/rebase
 !/shebang.sh
 !/upstream

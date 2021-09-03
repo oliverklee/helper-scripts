@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Pulls either the "main" or "master" branch.
+# Switches to the git default branch ("main" or "master", will be autodetected) and pulls it.
 
 source 'output.sh'
 source 'git-tools.sh'
