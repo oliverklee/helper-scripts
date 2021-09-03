@@ -11,8 +11,10 @@ echo 'Trimming all ext4 partitions …'
 partitions=$(mount | grep -P "type ext4" | awk '{print $3}')
 for partition in $partitions
 do
-  sudo fstrim -v "$partition"
+  linefeed
+  echo "Trimming ${partition} …"
+  time sudo fstrim -v "$partition"
 done
 
-success 'Done.'
 linefeed
+success 'Done.'
