@@ -8,14 +8,12 @@ source 'output.sh'
 
 # Checks that the configuration file exists, reads it, and checks that all important constants are set.
 function read_configuration {
-  CONFIGURATION_FILE='backup-sync.conf'
-  if [ ! -f "${CONFIGURATION_FILE}" ]; then
-    error "The configuration file \"${CONFIGURATION_FILE}\" does not exist."
-    error "Please create it as a copy of \"${CONFIGURATION_FILE}.dist\"."
+  if [ ! -f backup-sync.conf ]; then
+    error "The configuration file \"backup-sync.conf\" does not exist."
+    error "Please create it as a copy of \"backup-sync.conf.dist\"."
     exit 1
   fi
-
-  source "${CONFIGURATION_FILE}"
+  source backup-sync.conf
 
   IMPORTANT_VARIABLES='EXTERNAL_DRIVE_UUID EXTERNAL_DRIVE_MOUNTPOINT EXTERNAL_CONFIGURATION_DIR '
   IMPORTANT_VARIABLES+='CONFIGURATION_FILES_TO_BACKUP DIRECTORIES_TO_BACKUP BACKUP2L_LOCAL_DIR BACKUP2L_EXTERNAL_DIR'
