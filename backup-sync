@@ -22,7 +22,7 @@ function read_configuration {
   for variable in ${IMPORTANT_VARIABLES}; do
     echo "Checking ${variable} …"
     if [ -z "${!variable}" ]; then
-      error "The configuration variable "${variable}" is not set."
+      error "The configuration variable \"${variable}\" is not set."
       exit 1
     fi
   done
