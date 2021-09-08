@@ -15,15 +15,18 @@ function read_configuration {
   fi
   source "${HOME}/.config/backup-sync.conf"
 
+  echo 'Checking the configuration variables …'
   IMPORTANT_VARIABLES='EXTERNAL_DRIVE_UUID EXTERNAL_DRIVE_MOUNTPOINT EXTERNAL_CONFIGURATION_DIR '
   IMPORTANT_VARIABLES+='CONFIGURATION_FILES_TO_BACKUP DIRECTORIES_TO_BACKUP BACKUP2L_LOCAL_DIR BACKUP2L_EXTERNAL_DIR'
   for variable in ${IMPORTANT_VARIABLES}; do
-    echo "Checking ${variable} …"
+    echo "- Checking ${variable} …"
     if [ -z "${!variable}" ]; then
       error "The configuration variable \"${variable}\" is not set."
       exit 1
     fi
   done
+  success 'Done.'
+  linefeed
 }
 
 # Checks that the external drive is connected, and mounts it.
