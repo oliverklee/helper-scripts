@@ -43,7 +43,6 @@ Most of these scripts probably are Ubuntu-specific.
 | File                    | Description                                           |
 |-------------------------|-------------------------------------------------------|
 | `shebang.sh`            | copy'n'paste template for the shell shebang           |
-| `backup-sync.conf`      | the configuration file for `backup-sync` (not in git) |
 | `backup-sync.conf.dist` | template for configuration file for `backup-sync`     |
 
 ## Installation

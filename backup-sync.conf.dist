@@ -2,7 +2,7 @@
 
 #
 # Configuration file for the "backup-sync" script.
-# Use this file as a template, copy it to "backup-sync.conf", and set the constants as needed.
+# Use this file as a template, copy it to "~/.config/backup-sync.conf", and set the constants as needed.
 #
 
 # UUID of the external backup drive to which the data will by synced
