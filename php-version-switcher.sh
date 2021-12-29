@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #
-# Functions for switching between PHP versions on an installation that uses
-# Apache and mod_php.
+# Functions for switching between PHP versions for CLI and for Apache and mod_php
+# (if those are installed).
 #
 
 source 'output.sh'
@@ -10,23 +10,17 @@ source 'output.sh'
 # Switches to the provided PHP versions, disables the Apache modules for all
 # other versions, and restarts Apache.
 function switch_to_php_version {
-  ensure_apache
-
   PHP_VERSIONS=$(update-alternatives --list php | cut -b 13-15 )
 
   ensure_php_version_is_installed "$1"
-  disable_other_mods "$1"
-  enable_mod "$1"
+
+  # only switch the Apache PHP module if Apache is installed
+  if [ $(dpkg-query -W -f='${Status}' apache2 2>/dev/null | grep -c "ok installed") -eq 1 ]; then
+    disable_other_mods "$1"
+    enable_mod "$1"
+  fi
 
   switch_php_alternative "$1"
-}
-
-# Ensures that Apache 2 is installed.
-function ensure_apache {
-  if [ $(dpkg-query -W -f='${Status}' apache2 2>/dev/null | grep -c "ok installed") -eq 0 ]; then
-    error 'The package "apache2" is not installed. In this case, this script is not for you.'
-    exit 1
-  fi
 }
 
 # Ensures that the given version of PHP actually is installed.
