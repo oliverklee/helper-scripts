@@ -24,7 +24,7 @@ function switch_to_php_version {
 # Ensures that Apache 2 is installed.
 function ensure_apache {
   if [ $(dpkg-query -W -f='${Status}' apache2 2>/dev/null | grep -c "ok installed") -eq 0 ]; then
-    error 'The package "apache2" is not installed. In this case, this script is not for your.'
+    error 'The package "apache2" is not installed. In this case, this script is not for you.'
     exit 1
   fi
 }
