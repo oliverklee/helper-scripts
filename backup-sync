@@ -83,7 +83,7 @@ function unmount_internal_drive {
 function backup_configuration_files {
   if [ ! -d "${EXTERNAL_CONFIGURATION_DIR}" ]; then
     echo 'Creating configuration directory …'
-    mkdir "${EXTERNAL_CONFIGURATION_DIR}"
+    sudo mkdir "${EXTERNAL_CONFIGURATION_DIR}"
 
     if [ ! -d "${EXTERNAL_CONFIGURATION_DIR}" ]; then
       error "The directory ${EXTERNAL_CONFIGURATION_DIR} could not be created."
