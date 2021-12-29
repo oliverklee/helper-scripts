@@ -69,7 +69,7 @@ function unmount_external_drive {
 
 # Unmounts the internal backup drive.
 function unmount_internal_drive {
-  if [ -z "${!INTERNAL_BACKUP_DRIVE_MOUNTPOINT}" ]; then
+  if [ -z "${INTERNAL_BACKUP_DRIVE_MOUNTPOINT}" ]; then
     return
   fi
 
