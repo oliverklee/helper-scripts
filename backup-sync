@@ -108,7 +108,7 @@ function backup_directories {
   echo 'Syncing directories …'
   for dirname in ${DIRECTORIES_TO_BACKUP}; do
       echo "- ${dirname}"
-      time sudo nice -n 19 rsync -aES --no-compress --delete --inplace --stats "${dirname}" "${EXTERNAL_DRIVE_MOUNTPOINT}${dirname}"
+      time sudo nice -n 19 rsync -aES --info=progress2 --no-compress --delete --inplace --stats "${dirname}" "${EXTERNAL_DRIVE_MOUNTPOINT}${dirname}"
       linefeed
   done
   success 'Done.'
@@ -119,7 +119,7 @@ function backup_directories {
 function sync_backup_files {
   echo 'Syncing the backup2l files …'
 
-  time sudo nice -n 19 rsync -aESW --no-compress --stats --inplace "${BACKUP2L_LOCAL_DIR}" "${BACKUP2L_EXTERNAL_DIR}"
+  time sudo nice -n 19 rsync -aESW --info=progress2 --no-compress --stats --inplace "${BACKUP2L_LOCAL_DIR}" "${BACKUP2L_EXTERNAL_DIR}"
 
   success 'Done.'
   linefeed
