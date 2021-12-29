@@ -5,6 +5,10 @@
 # Use this file as a template, copy it to "~/.config/backup-sync.conf", and set the constants as needed.
 #
 
+# mountpoint of the internal backup drive that has the UUID configured in EXTERNAL_DRIVE_UUID (without the trailing slash)
+# (leave empty/unset to not automatically mount the internal drive)
+# INTERNAL_BACKUP_DRIVE_MOUNTPOINT='/backup'
+
 # UUID of the external backup drive to which the data will by synced
 EXTERNAL_DRIVE_UUID='d4914656-998c-4d57-b468-f8b65696e4a8'
 

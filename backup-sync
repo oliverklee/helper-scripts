@@ -29,6 +29,18 @@ function read_configuration {
   linefeed
 }
 
+# Mounts the internal backup drive.
+function mount_internal_drive {
+  if [ -z "${INTERNAL_BACKUP_DRIVE_MOUNTPOINT}" ]; then
+    return
+  fi
+
+  echo 'Mounting internal backup drive …'
+  sudo mount "${INTERNAL_BACKUP_DRIVE_MOUNTPOINT}"
+  success 'Done.'
+  linefeed
+}
+
 # Checks that the external drive is connected, and mounts it.
 function mount_external_drive {
   echo 'Checking for external drive …'
@@ -51,6 +63,18 @@ function mount_external_drive {
 function unmount_external_drive {
   echo 'Unmounting external drive …'
   sudo umount "${EXTERNAL_DRIVE_MOUNTPOINT}"
+  success 'Done.'
+  linefeed
+}
+
+# Unmounts the internal backup drive.
+function unmount_internal_drive {
+  if [ -z "${!INTERNAL_BACKUP_DRIVE_MOUNTPOINT}" ]; then
+    return
+  fi
+
+  echo 'Unmounting internal backup drive …'
+  sudo umount "${INTERNAL_BACKUP_DRIVE_MOUNTPOINT}"
   success 'Done.'
   linefeed
 }
@@ -102,6 +126,7 @@ function sync_backup_files {
 }
 
 read_configuration
+mount_internal_drive
 mount_external_drive
 
 backup_configuration_files
@@ -109,3 +134,4 @@ backup_directories
 sync_backup_files
 
 unmount_external_drive
+unmount_internal_drive
