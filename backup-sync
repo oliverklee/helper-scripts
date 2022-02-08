@@ -108,6 +108,7 @@ function backup_directories {
   echo 'Syncing directories …'
   for dirname in ${DIRECTORIES_TO_BACKUP}; do
       echo "- ${dirname}"
+      sudo mkdir -p "${EXTERNAL_DRIVE_MOUNTPOINT}${dirname}"
       time sudo nice -n 19 rsync -aES --info=progress2 --no-compress --delete --inplace --stats "${dirname}" "${EXTERNAL_DRIVE_MOUNTPOINT}${dirname}"
       linefeed
   done
