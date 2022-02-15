@@ -22,7 +22,7 @@ EXTERNAL_CONFIGURATION_DIR="${EXTERNAL_DRIVE_MOUNTPOINT}/configuration/"
 CONFIGURATION_FILES_TO_BACKUP='backup2l.conf fstab group passwd'
 
 # directories that should be backuped separately to EXTERNAL_DRIVE_MOUNTPOINT (with the leading and trailing slash)
-DIRECTORIES_TO_BACKUP='/etc/ /home/ /opt/ /root/ /usr/local/ /var/lib/mysql/'
+DIRECTORIES_TO_BACKUP='/etc/ /home/ /opt/ /root/ /usr/local/'
 
 # the local directory where backup2l stores its files (including the leading and trailing slash)
 BACKUP2L_LOCAL_DIR='/backup/raw/'
