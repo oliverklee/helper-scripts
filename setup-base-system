@@ -18,6 +18,7 @@ sudo apt-get install -y \
   bzip2 \
   curl \
   deborphan \
+  etckeeper \
   fonts-roboto \
   gscan2pdf \
   joe \
