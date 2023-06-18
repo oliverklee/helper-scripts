@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# Installs the most relevant packages for a base system, and sets the most important settings.
+
+source 'output.sh'
+
+echo 'Updating the package lists and all packages …'
+sudo apt-get update -y
+sudo apt-get dist-upgrade -y
+success 'Done.'
+linefeed
+
+echo 'Installing the most relevant packages …'
+sudo apt-get install -y \
+  aptitude \
+  ausweisapp2 \
+  bash-completion \
+  bzip2 \
+  curl \
+  deborphan \
+  fonts-roboto \
+  gscan2pdf \
+  joe \
+  kate \
+  krusader \
+  ncdu \
+  p7zip-full \
+  pdfarranger \
+  thunderbird \
+  thunderbird-locale-de \
+  thunderbird-locale-en \
+  thunderbird-locale-en-us \
+  ttf-mscorefonts-installer \
+  wget \
+  yakuake
+success 'Done.'
+linefeed
+
+echo 'Installing Google Chrome …'
+curl -O https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb --output-dir /tmp
+sudo dpkg -i /tmp/google-chrome-stable_current_amd64.deb
+sudo apt install -f
+rm /tmp/google-chrome-stable_current_amd64.deb
+success 'Done.'

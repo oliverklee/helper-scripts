@@ -28,6 +28,7 @@
 !/package-cleanup
 !/php-version-switcher.sh
 !/rebase
+!/setup-base-system
 !/shebang.sh
 !/upstream
 !/upstream-10-4
