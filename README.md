@@ -32,6 +32,7 @@ Most of these scripts probably are Ubuntu-specific.
 | `setup-base-system`        | installs the most important applications and settings |
 | `setup-development-basics` | installs the most important things for development    |
 | `setup-git`                | installs and configures git                           |
+| `setup-gpg`                | installs and configures GPG                           |
 | `setup-social`             | installs Discord, Slack and Zoom                      |
 
 ### Libraries included by the other scripts

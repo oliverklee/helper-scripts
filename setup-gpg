@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Installs configures GPG.
+
+source 'output.sh'
+
+echo 'Installing packages ...'
+sudo apt-get install -y \
+  gnupg \
+  gnupg-agent \
+  libccid \
+  libpcsclite1 \
+  libyubikey0 \
+  pcscd \
+  pinentry-qt \
+  scdaemon
+success 'Done.'
+linefeed
+
+echo 'Configuring GPG key format ...'
+mkdir -p ~/.gnupg
+GPG_CONFIGURATION_FILE=~/.gnupg/gpg.conf
+touch "${GPG_CONFIGURATION_FILE}"
+if grep -q '^keyid-format' "${GPG_CONFIGURATION_FILE}"; then
+  echo 'Already configured.';
+else
+  echo  >> "${GPG_CONFIGURATION_FILE}"
+  echo '# Always use long key IDs' >> "${GPG_CONFIGURATION_FILE}"
+  echo 'keyid-format 0xlong' >> "${GPG_CONFIGURATION_FILE}"
+  success 'Done.'
+fi
+linefeed
