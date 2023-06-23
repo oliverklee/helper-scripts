@@ -12,7 +12,7 @@ else
   FILENAME='discord-0.0.27.deb'
   curl -O "https://dl.discordapp.net/apps/linux/0.0.27/${FILENAME}" --output-dir /tmp
   sudo dpkg -i "/tmp/${FILENAME}"
-  sudo apt install -f
+  sudo apt-get install -fy
   rm "/tmp/${FILENAME}"
   success 'Done.'
 fi
@@ -26,7 +26,7 @@ else
   FILENAME='slack-desktop-4.32.127-amd64.deb'
   curl -O "https://downloads.slack-edge.com/releases/linux/4.32.127/prod/x64/${FILENAME}" --output-dir /tmp
   sudo dpkg -i "/tmp/${FILENAME}"
-  sudo apt install -f
+  sudo apt-get install -fy
   rm "/tmp/${FILENAME}"
   success 'Done.'
 fi
@@ -40,7 +40,7 @@ else
   FILENAME='zoom_amd64.deb'
   curl -O "https://cdn.zoom.us/prod/5.14.10.3738/${FILENAME}" --output-dir /tmp
   sudo dpkg -i "/tmp/${FILENAME}"
-  sudo apt install -f
+  sudo apt-get install -fy
   rm "/tmp/${FILENAME}"
   success 'Done.'
 fi

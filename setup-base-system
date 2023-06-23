@@ -63,7 +63,7 @@ else
   FILENAME='google-chrome-stable_current_amd64.deb'
   curl -O "https://dl.google.com/linux/direct/${FILENAME}" --output-dir /tmp
   sudo dpkg -i "/tmp/${FILENAME}"
-  sudo apt install -f
+  sudo apt-get install -fy
   rm "/tmp/${FILENAME}"
   success 'Done.'
 fi
