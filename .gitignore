@@ -31,6 +31,7 @@
 !/php-version-switcher.sh
 !/rebase
 !/setup-base-system
+!/setup-development-basics
 !/setup-git
 !/setup-social
 !/shebang.sh
