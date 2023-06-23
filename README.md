@@ -30,6 +30,7 @@ Most of these scripts probably are Ubuntu-specific.
 | `package-cleanup`   | purges all configured-but-not-installed packages      |
 | `p55`…`p83`         | switch `mod_php` and the CLI PHP to a that version    |
 | `setup-base-system` | installs the most important applications and settings |
+| `setup-git`         | installs and configures git                           |
 | `setup-social`      | installs Discord, Slack and Zoom                      |
 
 ### Libraries included by the other scripts

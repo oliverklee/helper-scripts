@@ -7,6 +7,7 @@
 !/README.md
 !/backup-sync
 !/backup-sync.conf.dist
+!/bashrc-for-git.dist
 !/colors.sh
 !/create-ssh-key
 !/fstrim-all
@@ -30,6 +31,7 @@
 !/php-version-switcher.sh
 !/rebase
 !/setup-base-system
+!/setup-git
 !/setup-social
 !/shebang.sh
 !/upstream
