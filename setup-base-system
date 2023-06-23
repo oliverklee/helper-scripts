@@ -15,7 +15,6 @@ sudo apt-get install -y \
   aptitude \
   ausweisapp2 \
   bash-completion \
-  bzip2 \
   curl \
   deborphan \
   etckeeper \
@@ -25,7 +24,6 @@ sudo apt-get install -y \
   kate \
   krusader \
   ncdu \
-  p7zip-full \
   pdfarranger \
   thunderbird \
   thunderbird-locale-de \
@@ -34,6 +32,26 @@ sudo apt-get install -y \
   ttf-mscorefonts-installer \
   wget \
   yakuake
+success 'Done.'
+linefeed
+
+echo 'Installing supporting packages for Krusader …'
+sudo apt-get install -y \
+  arj \
+  bzip2 \
+  coreutils \
+  cpio \
+  kdiff3 \
+  kget \
+  krename \
+  lhasa \
+  p7zip-full \
+  rar \
+  unace \
+  unrar \
+  unzip \
+  xz-utils \
+  zip
 success 'Done.'
 linefeed
 
