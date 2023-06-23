@@ -11,8 +11,7 @@ if echo "$PACKAGE_REPORT" | grep -q 'install ok installed'; then
 else
   FILENAME='discord-0.0.27.deb'
   curl -O "https://dl.discordapp.net/apps/linux/0.0.27/${FILENAME}" --output-dir /tmp
-  sudo dpkg -i "/tmp/${FILENAME}"
-  sudo apt-get install -fy
+  sudo apt install -y "/tmp/${FILENAME}"
   rm "/tmp/${FILENAME}"
   success 'Done.'
 fi
@@ -25,8 +24,7 @@ if echo "$PACKAGE_REPORT" | grep -q 'install ok installed'; then
 else
   FILENAME='slack-desktop-4.32.127-amd64.deb'
   curl -O "https://downloads.slack-edge.com/releases/linux/4.32.127/prod/x64/${FILENAME}" --output-dir /tmp
-  sudo dpkg -i "/tmp/${FILENAME}"
-  sudo apt-get install -fy
+  sudo apt install -y "/tmp/${FILENAME}"
   rm "/tmp/${FILENAME}"
   success 'Done.'
 fi
@@ -39,8 +37,7 @@ if echo "$PACKAGE_REPORT" | grep -q 'install ok installed'; then
 else
   FILENAME='zoom_amd64.deb'
   curl -O "https://cdn.zoom.us/prod/5.14.10.3738/${FILENAME}" --output-dir /tmp
-  sudo dpkg -i "/tmp/${FILENAME}"
-  sudo apt-get install -fy
+  sudo apt install -y "/tmp/${FILENAME}"
   rm "/tmp/${FILENAME}"
   success 'Done.'
 fi

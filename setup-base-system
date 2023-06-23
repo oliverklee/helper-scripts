@@ -62,8 +62,7 @@ if echo "$PACKAGE_REPORT" | grep -q 'install ok installed'; then
 else
   FILENAME='google-chrome-stable_current_amd64.deb'
   curl -O "https://dl.google.com/linux/direct/${FILENAME}" --output-dir /tmp
-  sudo dpkg -i "/tmp/${FILENAME}"
-  sudo apt-get install -fy
+  sudo apt install -y "/tmp/${FILENAME}"
   rm "/tmp/${FILENAME}"
   success 'Done.'
 fi
