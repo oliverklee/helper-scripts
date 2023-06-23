@@ -27,6 +27,7 @@ linefeed
 
 BASH_CONFIGURATION_FILE=~/.bashrc
 touch "${BASH_CONFIGURATION_FILE}"
+CURRENT_DIRECTORY=`dirname "$0"`
 
 echo 'Configuring Bash autocompletion ...'
 if grep -q 'source /etc/bash_completion.d/git' "${BASH_CONFIGURATION_FILE}"; then
@@ -38,7 +39,6 @@ fi
 linefeed
 
 echo 'Configuring branch display on the shell ...'
-CURRENT_DIRECTORY=`dirname "$0"`
 if grep -q '/usr/share/bash-completion/completions/git' "${BASH_CONFIGURATION_FILE}"; then
   success 'Already configured.';
 else
