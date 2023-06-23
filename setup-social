@@ -1,0 +1,46 @@
+#!/bin/bash
+
+# Installs Discord, Slack and Zoom
+
+source 'output.sh'
+
+echo 'Installing Discord …'
+INSTALLED_PACKAGES=`dpkg -l`
+if echo "$INSTALLED_PACKAGES" | grep -q 'discord'; then
+  success 'Already installed.';
+else
+  FILENAME='discord-0.0.27.deb'
+  curl -O "https://dl.discordapp.net/apps/linux/0.0.27/${FILENAME}" --output-dir /tmp
+  sudo dpkg -i "/tmp/${FILENAME}"
+  sudo apt install -f
+  rm "/tmp/${FILENAME}"
+  success 'Done.'
+fi
+linefeed
+
+echo 'Installing Slack …'
+INSTALLED_PACKAGES=`dpkg -l`
+if echo "$INSTALLED_PACKAGES" | grep -q 'discord'; then
+  success 'Already installed.';
+else
+  FILENAME='slack-desktop-4.32.127-amd64.deb'
+  curl -O "https://downloads.slack-edge.com/releases/linux/4.32.127/prod/x64/${FILENAME}" --output-dir /tmp
+  sudo dpkg -i "/tmp/${FILENAME}"
+  sudo apt install -f
+  rm "/tmp/${FILENAME}"
+  success 'Done.'
+fi
+linefeed
+
+echo 'Installing Zoom …'
+INSTALLED_PACKAGES=`dpkg -l`
+if echo "$INSTALLED_PACKAGES" | grep -q 'discord'; then
+  success 'Already installed.';
+else
+  FILENAME='zoom_amd64.deb'
+  curl -O "https://cdn.zoom.us/prod/5.14.10.3738/${FILENAME}" --output-dir /tmp
+  sudo dpkg -i "/tmp/${FILENAME}"
+  sudo apt install -f
+  rm "/tmp/${FILENAME}"
+  success 'Done.'
+fi
