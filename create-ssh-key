@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Creates a new ed25519 SSH key.
+
+source 'output.sh'
+
+mkdir -p ~/.ssh
+
+FILENAME=~/.ssh/id_ed25519
+if [ -f "${FILENAME}" ]; then
+  success "Nothing do - there already is a SSH key.";
+else
+  read -p 'Comment/description of the SSH key: ' comment
+  ssh-keygen -t ed25519 -C "${comment}"
+  success 'Done.'
+fi

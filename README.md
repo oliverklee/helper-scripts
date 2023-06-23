@@ -23,6 +23,7 @@ Most of these scripts probably are Ubuntu-specific.
 | Script              | Description                                           |
 |---------------------|-------------------------------------------------------|
 | `backup-sync`       | synchronizes files to an external backup disk         |
+| `create-ssh-key`    | creates a new ed25519 SSH key                         |
 | `fstrim-all`        | SSD-trims all ext partitions                          |
 | `kwin-restart`      | restarts `kwin` (e.g., after a crash)                 |
 | `memflush`          | flushes all memory caches and the swap file/partition |

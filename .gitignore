@@ -8,6 +8,7 @@
 !/backup-sync
 !/backup-sync.conf.dist
 !/colors.sh
+!/create-ssh-key
 !/fstrim-all
 !/git-tools.sh
 !/kwin-restart
