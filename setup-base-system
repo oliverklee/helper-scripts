@@ -56,8 +56,8 @@ success 'Done.'
 linefeed
 
 echo 'Installing Google Chrome …'
-INSTALLED_PACKAGES=`dpkg -l`
-if echo "$INSTALLED_PACKAGES" | grep -q 'google-chrome-stable'; then
+PACKAGE_REPORT=`dpkg -s google-chrome-stable`
+if echo "$PACKAGE_REPORT" | grep -q 'install ok installed'; then
   success 'Already installed.';
 else
   FILENAME='google-chrome-stable_current_amd64.deb'
