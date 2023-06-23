@@ -42,9 +42,10 @@ INSTALLED_PACKAGES=`dpkg -l`
 if echo "$INSTALLED_PACKAGES" | grep -q 'google-chrome-stable'; then
   success 'Already installed.';
 else
-  curl -O https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb --output-dir /tmp
-  sudo dpkg -i /tmp/google-chrome-stable_current_amd64.deb
+  FILENAME='google-chrome-stable_current_amd64.deb'
+  curl -O "https://dl.google.com/linux/direct/${FILENAME}" --output-dir /tmp
+  sudo dpkg -i "/tmp/${FILENAME}"
   sudo apt install -f
-  rm /tmp/google-chrome-stable_current_amd64.deb
+  rm "/tmp/${FILENAME}"
   success 'Done.'
 fi
