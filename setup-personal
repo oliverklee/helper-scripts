@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Sets up personal settings for Oliver Klee (me).
+
+source 'output.sh'
+
+echo 'Setting up personal settings for Oliver Klee ...'
+read -p 'Are you Oliver Klee? [y/N] ' identity
+if [ "${identity}" != 'y' ]; then
+  notice 'Okay then. Exiting.'
+  exit 0
+fi
+linefeed
+
+echo 'Configuring git ...'
+git config --global user.name "Oliver Klee"
+git config --global user.email "typo3-coding@oliverklee.de"
+git config --global user.signingkey "0x235EF2616E0B8FA769652444E74BB46157AA8FDF"
+success 'Done.'
+linefeed
+
+echo 'Configuring default GPG key ...'
+mkdir -p ~/.gnupg
+GPG_CONFIGURATION_FILE=~/.gnupg/gpg.conf
+touch "${GPG_CONFIGURATION_FILE}"
+if grep -q '^default-key ' "${GPG_CONFIGURATION_FILE}"; then
+  echo 'Already configured.';
+else
+  echo  >> "${GPG_CONFIGURATION_FILE}"
+  echo 'default-key 235EF2616E0B8FA769652444E74BB46157AA8FDF' >> "${GPG_CONFIGURATION_FILE}"
+  success 'Done.'
+fi

@@ -29,4 +29,3 @@ else
   echo 'keyid-format 0xlong' >> "${GPG_CONFIGURATION_FILE}"
   success 'Done.'
 fi
-linefeed

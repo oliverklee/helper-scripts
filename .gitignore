@@ -33,6 +33,7 @@
 !/setup-base-system
 !/setup-git
 !/setup-gpg
+!/setup-personal
 !/setup-social
 !/shebang.sh
 !/update-everything
