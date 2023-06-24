@@ -41,3 +41,13 @@ else
   rm "/tmp/${FILENAME}"
   success 'Done.'
 fi
+linefeed
+
+echo 'Installing Signal …'
+PACKAGE_REPORT=`snap list`
+if echo "$PACKAGE_REPORT" | grep -q '^signal-desktop '; then
+  success 'Already installed.';
+else
+  sudo snap install signal-desktop
+  success 'Done.'
+fi
