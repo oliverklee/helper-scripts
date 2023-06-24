@@ -1,6 +1,0 @@
-#!/bin/bash
-
-# Installs and configures general development things
-
-setup-git
-

@@ -19,21 +19,20 @@ and come with all kinds of safeguards.
 
 Most of these scripts probably are Ubuntu-specific.
 
-| Script                     | Description                                           |
-|----------------------------|-------------------------------------------------------|
-| `backup-sync`              | synchronizes files to an external backup disk         |
-| `create-ssh-key`           | creates a new ed25519 SSH key                         |
-| `fstrim-all`               | SSD-trims all ext partitions                          |
-| `kwin-restart`             | restarts `kwin` (e.g., after a crash)                 |
-| `memflush`                 | flushes all memory caches and the swap file/partition |
-| `package-cleanup`          | purges all configured-but-not-installed packages      |
-| `p55`…`p83`                | switch `mod_php` and the CLI PHP to a that version    |
-| `setup-base-system`        | installs the most important applications and settings |
-| `setup-development-basics` | installs the most important things for development    |
-| `setup-git`                | installs and configures git                           |
-| `setup-gpg`                | installs and configures GPG                           |
-| `setup-social`             | installs Discord, Slack and Zoom                      |
-| `update-all`               | updates all DEB packages and snaps                    |
+| Script              | Description                                           |
+|---------------------|-------------------------------------------------------|
+| `backup-sync`       | synchronizes files to an external backup disk         |
+| `create-ssh-key`    | creates a new ed25519 SSH key                         |
+| `fstrim-all`        | SSD-trims all ext partitions                          |
+| `kwin-restart`      | restarts `kwin` (e.g., after a crash)                 |
+| `memflush`          | flushes all memory caches and the swap file/partition |
+| `package-cleanup`   | purges all configured-but-not-installed packages      |
+| `p55`…`p83`         | switch `mod_php` and the CLI PHP to a that version    |
+| `setup-base-system` | installs the most important applications and settings |
+| `setup-git`         | installs and configures git                           |
+| `setup-gpg`         | installs and configures GPG                           |
+| `setup-social`      | installs Discord, Slack and Zoom                      |
+| `update-all`        | updates all DEB packages and snaps                    |
 
 ### Libraries included by the other scripts
 
