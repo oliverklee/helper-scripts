@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Installs Discord, Slack and Zoom
+# Installs Discord, Slack, Zoom and Signal.
 
 source 'output.sh'
 
