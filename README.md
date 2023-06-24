@@ -34,6 +34,7 @@ Most of these scripts probably are Ubuntu-specific.
 | `setup-git`                | installs and configures git                           |
 | `setup-gpg`                | installs and configures GPG                           |
 | `setup-social`             | installs Discord, Slack and Zoom                      |
+| `update-all`               | updates all DEB packages and snaps                    |
 
 ### Libraries included by the other scripts
 

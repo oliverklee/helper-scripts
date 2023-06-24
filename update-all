@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Updates all DEB packages and snaps.
+
+source 'output.sh'
+
+echo 'Updating DEB packages ...'
+sudo apt-get update
+sudo apt-get dist-upgrade -y
+sudo apt-get clean
+success 'Done.'
+linefeed
+
+echo 'Updating snaps ...'
+sudo snap refresh
+success 'Done.'
