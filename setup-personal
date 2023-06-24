@@ -38,3 +38,4 @@ success 'Done.'
 linefeed
 
 echo 'Now please insert your YubiKey and do "gpg --card-edit" to connect it.'
+echo 'Then do "gpg --edit key 235EF2616E0B8FA769652444E74BB46157AA8FDF" and "trust".'
