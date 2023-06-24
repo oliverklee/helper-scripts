@@ -26,8 +26,8 @@ Most of these scripts probably are Ubuntu-specific.
 | `fstrim-all`        | SSD-trims all ext partitions                          |
 | `kwin-restart`      | restarts `kwin` (e.g., after a crash)                 |
 | `memflush`          | flushes all memory caches and the swap file/partition |
-| `package-cleanup`   | purges all configured-but-not-installed packages      |
 | `p55`…`p83`         | switch `mod_php` and the CLI PHP to a that version    |
+| `package-cleanup`   | purges all configured-but-not-installed packages      |
 | `setup-base-system` | installs the most important applications and settings |
 | `setup-git`         | installs and configures git                           |
 | `setup-gpg`         | installs and configures GPG                           |
@@ -47,9 +47,9 @@ Most of these scripts probably are Ubuntu-specific.
 
 | File                    | Description                                       |
 |-------------------------|---------------------------------------------------|
-| `shebang.sh`            | copy'n'paste template for the shell shebang       |
 | `backup-sync.conf.dist` | template for configuration file for `backup-sync` |
 | `bashrc-for-git.dist`   | template for git branch display for `.bashrc`     |
+| `shebang.sh`            | copy'n'paste template for the shell shebang       |
 
 ## Installation
 
