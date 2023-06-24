@@ -47,10 +47,11 @@ Most of these scripts probably are Ubuntu-specific.
 
 ### Other files
 
-| File                    | Description                                           |
-|-------------------------|-------------------------------------------------------|
-| `shebang.sh`            | copy'n'paste template for the shell shebang           |
-| `backup-sync.conf.dist` | template for configuration file for `backup-sync`     |
+| File                    | Description                                       |
+|-------------------------|---------------------------------------------------|
+| `shebang.sh`            | copy'n'paste template for the shell shebang       |
+| `backup-sync.conf.dist` | template for configuration file for `backup-sync` |
+| `bashrc-for-git.dist`   | template for git branch display for `.bashrc`     |
 
 ## Installation
 
