@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Installs PhpStorm.
+
+source 'output.sh'
+
+echo 'Installing PhpStorm …'
+PACKAGE_REPORT=`snap list`
+if echo "$PACKAGE_REPORT" | grep -q '^phpstorm '; then
+  success 'Already installed.';
+else
+  sudo snap install phpstorm --classic
+  success 'Done.'
+fi

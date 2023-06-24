@@ -35,6 +35,7 @@
 !/setup-git
 !/setup-gpg
 !/setup-personal
+!/setup-phpstorm
 !/setup-social
 !/shebang.sh
 !/update-everything
