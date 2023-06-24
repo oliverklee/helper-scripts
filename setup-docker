@@ -1,0 +1,53 @@
+#!/bin/bash
+
+# Installs Docker CE and Docker Compose.
+
+source 'output.sh'
+
+echo 'Installing Discord …'
+PACKAGE_REPORT=`dpkg -s discord`
+if echo "$PACKAGE_REPORT" | grep -q 'install ok installed'; then
+  success 'Already installed.';
+else
+  FILENAME='discord-0.0.27.deb'
+  curl -O "https://dl.discordapp.net/apps/linux/0.0.27/${FILENAME}" --output-dir /tmp
+  sudo apt install -y "/tmp/${FILENAME}"
+  rm "/tmp/${FILENAME}"
+  success 'Done.'
+fi
+linefeed
+
+echo 'Installing Slack …'
+PACKAGE_REPORT=`dpkg -s slack-desktop`
+if echo "$PACKAGE_REPORT" | grep -q 'install ok installed'; then
+  success 'Already installed.';
+else
+  FILENAME='slack-desktop-4.32.127-amd64.deb'
+  curl -O "https://downloads.slack-edge.com/releases/linux/4.32.127/prod/x64/${FILENAME}" --output-dir /tmp
+  sudo apt install -y "/tmp/${FILENAME}"
+  rm "/tmp/${FILENAME}"
+  success 'Done.'
+fi
+linefeed
+
+echo 'Installing Zoom …'
+PACKAGE_REPORT=`dpkg -s zoom`
+if echo "$PACKAGE_REPORT" | grep -q 'install ok installed'; then
+  success 'Already installed.';
+else
+  FILENAME='zoom_amd64.deb'
+  curl -O "https://cdn.zoom.us/prod/5.14.10.3738/${FILENAME}" --output-dir /tmp
+  sudo apt install -y "/tmp/${FILENAME}"
+  rm "/tmp/${FILENAME}"
+  success 'Done.'
+fi
+linefeed
+
+echo 'Installing Signal …'
+PACKAGE_REPORT=`snap list`
+if echo "$PACKAGE_REPORT" | grep -q '^signal-desktop '; then
+  success 'Already installed.';
+else
+  sudo snap install signal-desktop
+  success 'Done.'
+fi

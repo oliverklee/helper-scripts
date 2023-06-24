@@ -31,6 +31,7 @@
 !/php-version-switcher.sh
 !/rebase
 !/setup-base-system
+!/setup-docker
 !/setup-git
 !/setup-gpg
 !/setup-personal
