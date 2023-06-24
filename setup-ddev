@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Installs Discord, Slack, Zoom and Signal.
+
+source 'output.sh'
+
+setup-docker
+linefeed
+
+echo 'Installing DDEV …'
+PACKAGE_REPORT=`dpkg -s ddev`
+if echo "$PACKAGE_REPORT" | grep -q 'install ok installed'; then
+  success 'Already installed.';
+else
+  # Add DDEV’s GPG key to your keyring
+  curl -fsSL https://pkg.ddev.com/apt/gpg.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/ddev.gpg > /dev/null
+
+  # Add DDEV releases to your package repository
+  echo "deb [signed-by=/etc/apt/trusted.gpg.d/ddev.gpg] https://pkg.ddev.com/apt/ * *" | sudo tee /etc/apt/sources.list.d/ddev.list >/dev/null
+
+  # Update package information and install DDEV
+  sudo apt-get update
+  sudo apt install -y ddev mkcert
+
+  echo 'Installing mkcert …'
+  mkcert -install
+
+  success 'Done.'
+fi
