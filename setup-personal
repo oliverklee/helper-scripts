@@ -30,3 +30,11 @@ else
   echo 'default-key 235EF2616E0B8FA769652444E74BB46157AA8FDF' >> "${GPG_CONFIGURATION_FILE}"
   success 'Done.'
 fi
+linefeed
+
+echo 'Retrieving GPG key ...'
+gpg --recv-keys 235EF2616E0B8FA769652444E74BB46157AA8FDF
+success 'Done.'
+linefeed
+
+echo 'Now please insert your YubiKey and do "gpg --card-edit" to connect it.'
