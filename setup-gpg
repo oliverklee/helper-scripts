@@ -10,7 +10,6 @@ sudo apt-get install -y \
   gnupg-agent \
   libccid \
   libpcsclite1 \
-  libyubikey0 \
   pcscd \
   pinentry-qt \
   scdaemon
