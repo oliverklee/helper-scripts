@@ -1,0 +1,50 @@
+#!/bin/bash
+
+# Installs Ruby, dip, RubyMine and the Heroku CLI.
+
+source 'output.sh'
+
+echo 'Installing Ruby …'
+sudo apt-get install -y ruby ruby-dev ruby-rubygems
+success 'Done.'
+linefeed
+
+echo 'Installing dip …'
+gem install --user-install dip
+success 'Done.'
+linefeed
+
+echo 'Adding the gem bin directory to the path …'
+BASH_CONFIGURATION_FILE=~/.bashrc
+touch "${BASH_CONFIGURATION_FILE}"
+CURRENT_DIRECTORY=`dirname "$0"`
+if grep -q '.gem' "${BASH_CONFIGURATION_FILE}"; then
+  success 'Already configured.';
+else
+  echo '' >> "${BASH_CONFIGURATION_FILE}"
+  cat "${CURRENT_DIRECTORY}/bashrc-for-rubygems.dist" >> "${BASH_CONFIGURATION_FILE}"
+  success 'Done.'
+fi
+linefeed
+
+echo 'Installing RubyMine …'
+PACKAGE_REPORT=`snap list`
+if echo "$PACKAGE_REPORT" | grep -q '^rubymine '; then
+  success 'Already installed.';
+else
+  sudo snap install rubymine --classic
+  success 'Done.'
+fi
+linefeed
+
+echo 'Installing the Heroku CLI …'
+PACKAGE_REPORT=`dpkg -s heroku`
+if echo "$PACKAGE_REPORT" | grep -q 'install ok installed'; then
+  success 'Already installed.';
+else
+  curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
+  success 'Done.'
+  linefeed
+fi
+
+setup-docker

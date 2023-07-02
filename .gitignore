@@ -8,6 +8,7 @@
 !/backup-sync
 !/backup-sync.conf.dist
 !/bashrc-for-git.dist
+!/bashrc-for-rubygems.dist
 !/colors.sh
 !/create-ssh-key
 !/fstrim-all
@@ -39,6 +40,7 @@
 !/setup-local-php
 !/setup-personal
 !/setup-phpstorm
+!/setup-ruby
 !/setup-social
 !/shebang.sh
 !/update-everything

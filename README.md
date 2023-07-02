@@ -37,6 +37,7 @@ Most of these scripts probably are Ubuntu-specific.
 | `setup-local-php`   | sets up a local PHP version (but not Composer)        |
 | `setup-personal`    | sets up my personal settings (useful only for me!)    |
 | `setup-phpstorm`    | installs PhpStorm                                     |
+| `setup-ruby`        | Installs Ruby, dip, RubyMine and the Heroku CLI       |
 | `setup-social`      | installs Discord, Slack and Zoom                      |
 | `update-everything` | updates all DEB packages and snaps                    |
 
