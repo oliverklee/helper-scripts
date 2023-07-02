@@ -4,10 +4,7 @@
 
 source 'output.sh'
 
-echo 'Updating the package lists and all packages …'
-sudo apt-get update -y
-sudo apt-get dist-upgrade -y
-success 'Done.'
+update-everything
 linefeed
 
 echo 'Installing the most relevant packages …'
