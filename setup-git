@@ -29,19 +29,21 @@ BASH_CONFIGURATION_FILE=~/.bashrc
 touch "${BASH_CONFIGURATION_FILE}"
 CURRENT_DIRECTORY=`dirname "$0"`
 
-echo 'Configuring Bash autocompletion ...'
-if grep -q 'source /etc/bash_completion.d/git' "${BASH_CONFIGURATION_FILE}"; then
+echo 'Configuring branch display on the shell ...'
+if grep -q 'parse_git_branch' "${BASH_CONFIGURATION_FILE}"; then
   success 'Already configured.';
 else
+  echo '' >> "${BASH_CONFIGURATION_FILE}"
   cat "${CURRENT_DIRECTORY}/bashrc-for-git.dist" >> "${BASH_CONFIGURATION_FILE}"
   success 'Done.'
 fi
 linefeed
 
-echo 'Configuring branch display on the shell ...'
+echo 'Configuring Bash autocompletion ...'
 if grep -q '/usr/share/bash-completion/completions/git' "${BASH_CONFIGURATION_FILE}"; then
   success 'Already configured.';
 else
+  echo '' >> "${BASH_CONFIGURATION_FILE}"
   echo '# Bash autocompletion for git' >> "${BASH_CONFIGURATION_FILE}"
   echo 'source /usr/share/bash-completion/completions/git' >> "${BASH_CONFIGURATION_FILE}"
   success 'Done.'
