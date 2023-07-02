@@ -4,7 +4,7 @@
 
 source 'output.sh'
 
-echo 'Installing packages ...'
+echo 'Installing packages …'
 sudo apt-get install -y \
   gnupg \
   gnupg-agent \
@@ -16,7 +16,7 @@ sudo apt-get install -y \
 success 'Done.'
 linefeed
 
-echo 'Configuring GPG key format ...'
+echo 'Configuring GPG key format …'
 mkdir -p ~/.gnupg
 GPG_CONFIGURATION_FILE=~/.gnupg/gpg.conf
 touch "${GPG_CONFIGURATION_FILE}"

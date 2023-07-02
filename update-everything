@@ -4,13 +4,13 @@
 
 source 'output.sh'
 
-echo 'Updating DEB packages ...'
+echo 'Updating DEB packages …'
 sudo apt-get update
 sudo apt-get dist-upgrade -y
 sudo apt-get clean
 success 'Done.'
 linefeed
 
-echo 'Updating snaps ...'
+echo 'Updating snaps …'
 sudo snap refresh
 success 'Done.'

@@ -4,7 +4,7 @@
 
 source 'output.sh'
 
-echo 'Setting up personal settings for Oliver Klee ...'
+echo 'Setting up personal settings for Oliver Klee …'
 read -p 'Are you Oliver Klee? [y/N] ' identity
 if [ "${identity}" != 'y' ]; then
   notice 'Okay then. Exiting.'
@@ -12,14 +12,14 @@ if [ "${identity}" != 'y' ]; then
 fi
 linefeed
 
-echo 'Configuring git ...'
+echo 'Configuring git …'
 git config --global user.name "Oliver Klee"
 git config --global user.email "typo3-coding@oliverklee.de"
 git config --global user.signingkey "0x235EF2616E0B8FA769652444E74BB46157AA8FDF"
 success 'Done.'
 linefeed
 
-echo 'Configuring default GPG key ...'
+echo 'Configuring default GPG key …'
 mkdir -p ~/.gnupg
 GPG_CONFIGURATION_FILE=~/.gnupg/gpg.conf
 touch "${GPG_CONFIGURATION_FILE}"
@@ -32,7 +32,7 @@ else
 fi
 linefeed
 
-echo 'Retrieving GPG key ...'
+echo 'Retrieving GPG key …'
 gpg --recv-keys 235EF2616E0B8FA769652444E74BB46157AA8FDF
 success 'Done.'
 linefeed

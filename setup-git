@@ -4,12 +4,12 @@
 
 source 'output.sh'
 
-echo 'Installing git...'
+echo 'Installing git …'
 sudo apt-get install -y git gitk git-core bash-completion
 success 'Done.'
 linefeed
 
-echo 'Configuring git...'
+echo 'Configuring git …'
 git config --global branch.autosetupmerge always
 git config --global branch.autosetuprebase remote
 git config --global color.ui auto
@@ -29,7 +29,7 @@ BASH_CONFIGURATION_FILE=~/.bashrc
 touch "${BASH_CONFIGURATION_FILE}"
 CURRENT_DIRECTORY=`dirname "$0"`
 
-echo 'Configuring branch display on the shell ...'
+echo 'Configuring branch display on the shell …'
 if grep -q 'parse_git_branch' "${BASH_CONFIGURATION_FILE}"; then
   success 'Already configured.';
 else
@@ -39,7 +39,7 @@ else
 fi
 linefeed
 
-echo 'Configuring Bash autocompletion ...'
+echo 'Configuring Bash autocompletion …'
 if grep -q '/usr/share/bash-completion/completions/git' "${BASH_CONFIGURATION_FILE}"; then
   success 'Already configured.';
 else
