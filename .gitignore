@@ -31,10 +31,12 @@
 !/php-version-switcher.sh
 !/rebase
 !/setup-base-system
+!/setup-composer
 !/setup-ddev
 !/setup-docker
 !/setup-git
 !/setup-gpg
+!/setup-local-php
 !/setup-personal
 !/setup-phpstorm
 !/setup-social

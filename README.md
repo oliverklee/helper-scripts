@@ -29,11 +29,13 @@ Most of these scripts probably are Ubuntu-specific.
 | `p55`…`p83`         | switch `mod_php` and the CLI PHP to a that version    |
 | `package-cleanup`   | purges all configured-but-not-installed packages      |
 | `setup-base-system` | installs the most important applications and settings |
+| `setup-composer`    | installs Composer (but not PHP)                       |
 | `setup-ddev`        | installs DDEV (and Docker CE)                         |
 | `setup-docker`      | installs Docker (CE)                                  |
 | `setup-git`         | installs and configures git                           |
 | `setup-gpg`         | installs and configures GPG                           |
-| `setup-personal`    | set up my personal settings (useful only for me!)     |
+| `setup-local-php`   | sets up a local PHP version (but not Composer)        |
+| `setup-personal`    | sets up my personal settings (useful only for me!)    |
 | `setup-phpstorm`    | installs PhpStorm                                     |
 | `setup-social`      | installs Discord, Slack and Zoom                      |
 | `update-everything` | updates all DEB packages and snaps                    |

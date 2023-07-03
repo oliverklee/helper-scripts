@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Installs Discord, Slack, Zoom and Signal.
+
+source 'output.sh'
+
+echo 'Installing composer …'
+if [ -f "${HOME}/bin/composer" ]; then
+  success 'Already installed.';
+else
+  curl 'https://getcomposer.org/download/2.5.8/composer.phar' -o "${HOME}/bin/composer"
+  chmod +x "${HOME}/bin/composer"
+  success 'Done.'
+fi
