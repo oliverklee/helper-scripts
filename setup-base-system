@@ -9,6 +9,7 @@ linefeed
 
 echo 'Installing the most relevant packages …'
 sudo apt-get install -y \
+  apt-show-versions \
   aptitude \
   ausweisapp2 \
   bash-completion \
@@ -22,6 +23,7 @@ sudo apt-get install -y \
   krusader \
   ncdu \
   pdfarranger \
+  ppa-purge \
   thunderbird \
   thunderbird-locale-de \
   thunderbird-locale-en \
