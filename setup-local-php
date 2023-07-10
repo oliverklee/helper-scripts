@@ -4,7 +4,6 @@
 
 source 'output.sh'
 
-PHP_VERSION='8.1'
 echo 'Installing local PHP …'
 sudo apt-get install -y \
 "php-cli" \
