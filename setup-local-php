@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Sets up a local PHP installation without a PPA, but does not set up Composer.
+
+source 'output.sh'
+
+PHP_VERSION='8.1'
+echo 'Installing local PHP …'
+sudo apt-get install -y \
+"php-cli" \
+"php-common" \
+"php-intl" \
+"php-xdebug" \
+"php-xml"
+success 'Done.'
+linefeed

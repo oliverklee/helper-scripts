@@ -34,6 +34,7 @@ Most of these scripts probably are Ubuntu-specific.
 | `setup-docker`             | installs Docker (CE)                                      |
 | `setup-git`                | installs and configures git                               |
 | `setup-gpg`                | installs and configures GPG                               |
+| `setup-local-php`          | sets up a local PHP version using the system packages     |
 | `setup-local-php-from-ppa` | sets up a local PHP version from a PPA (without Composer) |
 | `setup-personal`           | sets up my personal settings (useful only for me!)        |
 | `setup-phpstorm`           | installs PhpStorm                                         |
