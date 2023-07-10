@@ -38,6 +38,7 @@
 !/setup-git
 !/setup-gpg
 !/setup-local-php
+!/setup-local-php-from-ppa
 !/setup-personal
 !/setup-phpstorm
 !/setup-ruby

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Sets up a local PHP installation.
+# Sets up a local PHP installation using a PPA, but does not set up Composer.
 
 source 'output.sh'
 
