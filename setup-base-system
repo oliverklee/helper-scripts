@@ -15,6 +15,7 @@ sudo apt-get install -y \
   bash-completion \
   curl \
   deborphan \
+  djvulibre-bin \
   etckeeper \
   fonts-roboto \
   gscan2pdf \
@@ -23,12 +24,14 @@ sudo apt-get install -y \
   krusader \
   ncdu \
   pdfarranger \
+  pdftk \
   ppa-purge \
   thunderbird \
   thunderbird-locale-de \
   thunderbird-locale-en \
   thunderbird-locale-en-us \
   ttf-mscorefonts-installer \
+  unpaper \
   wget \
   yakuake
 success 'Done.'
