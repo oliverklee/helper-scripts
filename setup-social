@@ -9,12 +9,7 @@ PACKAGE_REPORT=`dpkg -s discord`
 if echo "${PACKAGE_REPORT}" | grep -q 'install ok installed'; then
   success 'Already installed.';
 else
-  DISCORD_PATH='/tmp/discord.deb'
-  # The URL is a redirect. So we need to use -L to follow it.
-  curl -L 'https://discord.com/api/download?platform=linux&format=deb' --output "${DISCORD_PATH}"
-  sudo apt install -y "${DISCORD_PATH}"
-  rm "${DISCORD_PATH}"
-  success 'Done.'
+  source 'install-latest-discord.sh'
 fi
 linefeed
 
@@ -23,16 +18,7 @@ PACKAGE_REPORT=`dpkg -s slack-desktop`
 if echo "${PACKAGE_REPORT}" | grep -q 'install ok installed'; then
   success 'Already installed.';
 else
-  SLACK_PATH='/tmp/slack-desktop-latest.deb'
-  wget -q https://slack.com/downloads/instructions/ubuntu -O - \
-  | tr "\t\r\n'" '   "' \
-  | grep -i -o '<a[^>]\+href[ ]*=[ \t]*"\(ht\|f\)tps\?:[^"]\+"' \
-  | sed -e 's/^.*"\([^"]\+\)".*$/\1/g' \
-  | grep 'slack-desktop' \
-  | xargs wget -q -O "${SLACK_PATH}"
-  sudo apt install -y "${SLACK_PATH}"
-  rm "${SLACK_PATH}"
-  success 'Done.'
+  source 'install-latest-slack.sh'
 fi
 linefeed
 
@@ -41,12 +27,7 @@ PACKAGE_REPORT=`dpkg -s zoom`
 if echo "${PACKAGE_REPORT}" | grep -q 'install ok installed'; then
   success 'Already installed.';
 else
-  ZOOM_PATH='/tmp/zoom_amd64.deb'
-  # The URL is a redirect. So we need to use -L to follow it.
-  curl -L 'https://zoom.us/client/latest/zoom_amd64.deb' --output "${ZOOM_PATH}"
-  sudo apt install -y "${ZOOM_PATH}"
-  rm "${ZOOM_PATH}"
-  success 'Done.'
+  source 'install-latest-zoom.sh'
 fi
 linefeed
 

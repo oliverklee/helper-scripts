@@ -13,6 +13,9 @@
 !/create-ssh-key
 !/fstrim-all
 !/git-tools.sh
+!/install-latest-discord.sh
+!/install-latest-slack.sh
+!/install-latest-zoom.sh
 !/kwin-restart
 !/main
 !/memflush
