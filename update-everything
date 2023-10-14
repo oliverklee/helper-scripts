@@ -14,3 +14,15 @@ linefeed
 echo 'Updating snaps …'
 sudo snap refresh
 success 'Done.'
+linefeed
+
+echo 'Updating dip …'
+GEM_REPORT=`gem search --local '^dip$'`
+if echo "$GEM_REPORT" | grep -q 'dip '; then
+  gem update dip --user-install;
+  success 'Done.'
+else
+  echo 'Not installed.';
+fi
+linefeed
+
