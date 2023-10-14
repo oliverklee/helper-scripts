@@ -9,10 +9,11 @@ PACKAGE_REPORT=`dpkg -s discord`
 if echo "$PACKAGE_REPORT" | grep -q 'install ok installed'; then
   success 'Already installed.';
 else
-  FILENAME='discord-0.0.31.deb'
-  curl -O "https://dl.discordapp.net/apps/linux/0.0.31/${FILENAME}" --output-dir /tmp
-  sudo apt install -y "/tmp/${FILENAME}"
-  rm "/tmp/${FILENAME}"
+  DISCORD_PATH='/tmp/discord.deb'
+  # The URL is a redirect. So we need to use -L to follow it.
+  curl -L 'https://discord.com/api/download?platform=linux&format=deb' --output "${DISCORD_PATH}"
+  sudo apt install -y "${DISCORD_PATH}"
+  rm "${DISCORD_PATH}"
   success 'Done.'
 fi
 linefeed
