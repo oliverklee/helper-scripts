@@ -26,6 +26,7 @@ sudo apt-get install -y \
   pdfarranger \
   pdftk \
   ppa-purge \
+  speech-dispatcher \
   thunderbird \
   thunderbird-locale-de \
   thunderbird-locale-en \
