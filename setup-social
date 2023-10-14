@@ -23,15 +23,15 @@ PACKAGE_REPORT=`dpkg -s slack-desktop`
 if echo "$PACKAGE_REPORT" | grep -q 'install ok installed'; then
   success 'Already installed.';
 else
-  FILENAME='slack-desktop-latest.deb'
+  SLACK_FILENAME='slack-desktop-latest.deb'
   wget -q https://slack.com/downloads/instructions/ubuntu -O - \
   | tr "\t\r\n'" '   "' \
   | grep -i -o '<a[^>]\+href[ ]*=[ \t]*"\(ht\|f\)tps\?:[^"]\+"' \
   | sed -e 's/^.*"\([^"]\+\)".*$/\1/g' \
   | grep 'slack-desktop' \
-  | xargs wget -q -O "/tmp/${FILENAME}"
-  sudo apt install -y "/tmp/${FILENAME}"
-  rm "/tmp/${FILENAME}"
+  | xargs wget -q -O "/tmp/${SLACK_FILENAME}"
+  sudo apt install -y "/tmp/${SLACK_FILENAME}"
+  rm "/tmp/${SLACK_FILENAME}"
   success 'Done.'
 fi
 linefeed
@@ -41,11 +41,11 @@ PACKAGE_REPORT=`dpkg -s zoom`
 if echo "$PACKAGE_REPORT" | grep -q 'install ok installed'; then
   success 'Already installed.';
 else
-  FILENAME='zoom_amd64.deb'
+  ZOOM_FILENAME='zoom_amd64.deb'
   # The URL is a redirect. So we need to use -L to follow it.
-  curl -O -L "https://zoom.us/client/latest/${FILENAME}" --output-dir /tmp
-  sudo apt install -y "/tmp/${FILENAME}"
-  rm "/tmp/${FILENAME}"
+  curl -O -L "https://zoom.us/client/latest/${ZOOM_FILENAME}" --output-dir /tmp
+  sudo apt install -y "/tmp/${ZOOM_FILENAME}"
+  rm "/tmp/${ZOOM_FILENAME}"
   success 'Done.'
 fi
 linefeed
