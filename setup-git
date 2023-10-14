@@ -5,7 +5,7 @@
 source 'output.sh'
 
 echo 'Installing git …'
-sudo apt-get install -y git gitk git-core bash-completion
+sudo apt-get install -y gh git gitk git-core bash-completion
 success 'Done.'
 linefeed
 
