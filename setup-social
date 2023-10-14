@@ -9,8 +9,8 @@ PACKAGE_REPORT=`dpkg -s discord`
 if echo "$PACKAGE_REPORT" | grep -q 'install ok installed'; then
   success 'Already installed.';
 else
-  FILENAME='discord-0.0.27.deb'
-  curl -O "https://dl.discordapp.net/apps/linux/0.0.27/${FILENAME}" --output-dir /tmp
+  FILENAME='discord-0.0.31.deb'
+  curl -O "https://dl.discordapp.net/apps/linux/0.0.31/${FILENAME}" --output-dir /tmp
   sudo apt install -y "/tmp/${FILENAME}"
   rm "/tmp/${FILENAME}"
   success 'Done.'
@@ -22,8 +22,13 @@ PACKAGE_REPORT=`dpkg -s slack-desktop`
 if echo "$PACKAGE_REPORT" | grep -q 'install ok installed'; then
   success 'Already installed.';
 else
-  FILENAME='slack-desktop-4.32.127-amd64.deb'
-  curl -O "https://downloads.slack-edge.com/releases/linux/4.32.127/prod/x64/${FILENAME}" --output-dir /tmp
+  FILENAME='slack-desktop-latest.deb'
+  wget -q https://slack.com/downloads/instructions/ubuntu -O - \
+  | tr "\t\r\n'" '   "' \
+  | grep -i -o '<a[^>]\+href[ ]*=[ \t]*"\(ht\|f\)tps\?:[^"]\+"' \
+  | sed -e 's/^.*"\([^"]\+\)".*$/\1/g' \
+  | grep 'slack-desktop' \
+  | xargs wget -q -O "/tmp/${FILENAME}"
   sudo apt install -y "/tmp/${FILENAME}"
   rm "/tmp/${FILENAME}"
   success 'Done.'
@@ -36,7 +41,8 @@ if echo "$PACKAGE_REPORT" | grep -q 'install ok installed'; then
   success 'Already installed.';
 else
   FILENAME='zoom_amd64.deb'
-  curl -O "https://cdn.zoom.us/prod/5.15.3.4839/${FILENAME}" --output-dir /tmp
+  # The URL is a redirect. So we need to use -L to follow it.
+  curl -O -L "https://zoom.us/client/latest/${FILENAME}" --output-dir /tmp
   sudo apt install -y "/tmp/${FILENAME}"
   rm "/tmp/${FILENAME}"
   success 'Done.'
