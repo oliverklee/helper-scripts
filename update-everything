@@ -5,9 +5,9 @@
 source 'output.sh'
 
 echo 'Updating DEB packages …'
-sudo apt-get update
-sudo apt-get dist-upgrade -y
-sudo apt-get clean
+sudo aptitude update
+sudo aptitude dist-upgrade -y
+sudo aptitude clean
 success 'Done.'
 linefeed
 
