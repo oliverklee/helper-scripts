@@ -18,11 +18,20 @@ linefeed
 
 echo 'Updating dip …'
 GEM_REPORT=`gem search --local '^dip$'`
-if echo "$GEM_REPORT" | grep -q 'dip '; then
+if echo "${GEM_REPORT}" | grep -q 'dip '; then
   gem update dip --user-install;
   success 'Done.'
 else
   echo 'Not installed.';
 fi
 linefeed
+
+echo 'Updating Composer …'
+COMPOSER_REPORT=`which composer`
+if echo "${COMPOSER_REPORT}" | grep -q '/composer'; then
+  composer selfupdate;
+  success 'Done.'
+else
+  echo 'Not installed.';
+fi
 
