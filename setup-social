@@ -6,7 +6,7 @@ source 'output.sh'
 
 echo 'Installing Discord …'
 PACKAGE_REPORT=`dpkg -s discord`
-if echo "$PACKAGE_REPORT" | grep -q 'install ok installed'; then
+if echo "${PACKAGE_REPORT}" | grep -q 'install ok installed'; then
   success 'Already installed.';
 else
   DISCORD_PATH='/tmp/discord.deb'
@@ -20,7 +20,7 @@ linefeed
 
 echo 'Installing Slack …'
 PACKAGE_REPORT=`dpkg -s slack-desktop`
-if echo "$PACKAGE_REPORT" | grep -q 'install ok installed'; then
+if echo "${PACKAGE_REPORT}" | grep -q 'install ok installed'; then
   success 'Already installed.';
 else
   SLACK_PATH='/tmp/slack-desktop-latest.deb'
@@ -38,7 +38,7 @@ linefeed
 
 echo 'Installing Zoom …'
 PACKAGE_REPORT=`dpkg -s zoom`
-if echo "$PACKAGE_REPORT" | grep -q 'install ok installed'; then
+if echo "${PACKAGE_REPORT}" | grep -q 'install ok installed'; then
   success 'Already installed.';
 else
   ZOOM_PATH='/tmp/zoom_amd64.deb'
@@ -52,7 +52,7 @@ linefeed
 
 echo 'Installing Signal …'
 PACKAGE_REPORT=`snap list`
-if echo "$PACKAGE_REPORT" | grep -q '^signal-desktop '; then
+if echo "${PACKAGE_REPORT}" | grep -q '^signal-desktop '; then
   success 'Already installed.';
 else
   sudo snap install signal-desktop
