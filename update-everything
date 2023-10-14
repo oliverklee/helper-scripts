@@ -16,6 +16,25 @@ sudo snap refresh
 success 'Done.'
 linefeed
 
+echo 'Updating Discord …'
+PACKAGE_REPORT=`dpkg -s discord`
+if echo "${PACKAGE_REPORT}" | grep -q 'install ok installed'; then
+  source 'install-latest-discord.sh'
+else
+  echo 'Not installed.';
+fi
+linefeed
+
+echo 'Updating Zoom …'
+PACKAGE_REPORT=`dpkg -s zoom`
+if echo "${PACKAGE_REPORT}" | grep -q 'install ok installed'; then
+  source 'install-latest-zoom.sh'
+else
+  echo 'Not installed.';
+fi
+linefeed
+
+
 echo 'Updating dip …'
 GEM_REPORT=`gem search --local '^dip$'`
 if echo "${GEM_REPORT}" | grep -q 'dip '; then
