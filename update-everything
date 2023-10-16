@@ -25,16 +25,6 @@ else
 fi
 linefeed
 
-echo 'Updating Zoom …'
-PACKAGE_REPORT=`dpkg -s zoom`
-if echo "${PACKAGE_REPORT}" | grep -q 'install ok installed'; then
-  source 'install-latest-zoom.sh'
-else
-  echo 'Not installed.';
-fi
-linefeed
-
-
 echo 'Updating dip …'
 GEM_REPORT=`gem search --local '^dip$'`
 if echo "${GEM_REPORT}" | grep -q 'dip '; then
@@ -53,4 +43,3 @@ if echo "${COMPOSER_REPORT}" | grep -q '/composer'; then
 else
   echo 'Not installed.';
 fi
-

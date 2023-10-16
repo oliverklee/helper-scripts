@@ -23,11 +23,12 @@ fi
 linefeed
 
 echo 'Installing Zoom …'
-PACKAGE_REPORT=`dpkg -s zoom`
-if echo "${PACKAGE_REPORT}" | grep -q 'install ok installed'; then
+PACKAGE_REPORT=`snap list`
+if echo "${PACKAGE_REPORT}" | grep -q '^zoom-client '; then
   success 'Already installed.';
 else
-  source 'install-latest-zoom.sh'
+  sudo snap install zoom-client --edge
+  success 'Done.'
 fi
 linefeed
 
