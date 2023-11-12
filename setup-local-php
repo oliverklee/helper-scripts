@@ -12,6 +12,7 @@ sudo apt-get install -y \
 "php-intl" \
 "php-mbstring" \
 "php-xdebug" \
-"php-xml"
+"php-xml" \
+"php-zip"
 success 'Done.'
 linefeed
