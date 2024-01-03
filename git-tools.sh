@@ -79,7 +79,7 @@ function determine_default_branch {
     exit 1
   fi
   if [ -n "${main_present}" ] && [ -n "${master_present}" ]; then
-    error 'Both a "main" nor a "master" branch are present. There can only be one.'
+    error 'Both a "main" and a "master" branch are present. There can only be one.'
     exit 1
   fi
 
