@@ -27,7 +27,7 @@ PACKAGE_REPORT=`snap list`
 if echo "${PACKAGE_REPORT}" | grep -q '^zoom-client '; then
   success 'Already installed.';
 else
-  sudo snap install zoom-client --edge
+  sudo snap install zoom-client --latest
   success 'Done.'
 fi
 linefeed
