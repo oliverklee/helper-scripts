@@ -65,6 +65,7 @@ else
   rm "/tmp/${FILENAME}"
   success 'Done.'
 fi
+linefeed
 
 echo 'Installing Thunderbird …'
 PACKAGE_REPORT=`snap list`
