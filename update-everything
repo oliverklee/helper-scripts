@@ -25,15 +25,18 @@ else
 fi
 linefeed
 
-echo 'Updating dip …'
-GEM_REPORT=`gem search --local '^dip$'`
-if echo "${GEM_REPORT}" | grep -q 'dip '; then
-  gem update dip --user-install;
-  success 'Done.'
-else
-  echo 'Not installed.';
+PATH_REPORT=`which gem`
+if echo "$PATH_REPORT" | grep -q 'gem'; then
+  echo 'Updating dip …'
+  GEM_REPORT=`gem search --local '^dip$'`
+  if echo "${GEM_REPORT}" | grep -q 'dip '; then
+    gem update dip --user-install;
+    success 'Done.'
+  else
+    echo 'Not installed.';
+  fi
+  linefeed
 fi
-linefeed
 
 echo 'Updating Composer …'
 COMPOSER_REPORT=`which composer`
