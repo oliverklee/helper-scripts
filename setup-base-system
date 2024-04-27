@@ -27,10 +27,6 @@ sudo apt-get install -y \
   pdftk \
   ppa-purge \
   speech-dispatcher \
-  thunderbird \
-  thunderbird-locale-de \
-  thunderbird-locale-en \
-  thunderbird-locale-en-us \
   ttf-mscorefonts-installer \
   unpaper \
   wget \
@@ -69,6 +65,16 @@ else
   rm "/tmp/${FILENAME}"
   success 'Done.'
 fi
+
+echo 'Installing Thunderbird …'
+PACKAGE_REPORT=`snap list`
+if echo "${PACKAGE_REPORT}" | grep -q '^thunderbird '; then
+  success 'Already installed.';
+else
+  sudo snap install thunderbird
+  success 'Done.'
+fi
+linefeed
 
 echo 'Installing Dropbox …'
 PACKAGE_REPORT=`dpkg -s dropbox`
