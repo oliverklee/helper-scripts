@@ -1,7 +1,0 @@
-#!/bin/bash
-
-# Switches PHP to version 7.4.
-
-source 'php-version-switcher.sh'
-
-switch_to_php_version '7.4'
