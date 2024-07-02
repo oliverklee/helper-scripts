@@ -2,9 +2,6 @@
 
 # Defines some color constants.
 
-# Fail on all errors
-set -euo pipefail
-
 export COLOR_OFF='\033[0m'
 
 export BLACK='\033[0;30m'
