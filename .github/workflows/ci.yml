@@ -1,0 +1,26 @@
+# https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions
+
+on:
+  push:
+  schedule:
+    - cron: '45 3 * * 1'
+
+name: CI
+
+jobs:
+  shellcheck:
+    name: Check shell scripts
+
+    runs-on: ubuntu-24.04
+
+    timeout-minutes: 2
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check scripts
+        uses: ludeeus/action-shellcheck@master
+        env:
+          # ignore "not following" warnings
+          SHELLCHECK_OPTS: -e SC1091
