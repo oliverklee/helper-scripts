@@ -26,7 +26,6 @@ Most of these scripts probably are Ubuntu-specific.
 | `fstrim-all`               | SSD-trims all ext partitions                              |
 | `kwin-restart`             | restarts `kwin` (e.g., after a crash)                     |
 | `memflush`                 | flushes all memory caches and the swap file/partition     |
-| `p55`…`p83`                | switch `mod_php` and the CLI PHP to a that version        |
 | `package-cleanup`          | purges all configured-but-not-installed packages          |
 | `setup-base-system`        | installs the most important applications and settings     |
 | `setup-composer`           | installs Composer (but not PHP)                           |
@@ -35,7 +34,6 @@ Most of these scripts probably are Ubuntu-specific.
 | `setup-git`                | installs and configures git                               |
 | `setup-gpg`                | installs and configures GPG                               |
 | `setup-local-php`          | sets up a local PHP version using the system packages     |
-| `setup-local-php-from-ppa` | sets up a local PHP version from a PPA (without Composer) |
 | `setup-personal`           | sets up my personal settings (useful only for me!)        |
 | `setup-phpstorm`           | installs PhpStorm                                         |
 | `setup-ruby`               | Installs Ruby, dip, RubyMine and the Heroku CLI           |
@@ -49,7 +47,6 @@ Most of these scripts probably are Ubuntu-specific.
 | `colors.sh`               | defines the ANSI escape codes for colored shell output | 
 | `git-tools.sh`            | provides functions for the git-related scripts         |
 | `output.sh`               | provides functions for outputting status messages      |
-| `php-version-switcher.sh` | switches between the PHP versions                      |
 
 ### Other files
 

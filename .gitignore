@@ -19,19 +19,7 @@
 !/main
 !/memflush
 !/output.sh
-!/p55
-!/p56
-!/p70
-!/p71
-!/p72
-!/p73
-!/p74
-!/p80
-!/p81
-!/p82
-!/p83
 !/package-cleanup
-!/php-version-switcher.sh
 !/rebase
 !/setup-base-system
 !/setup-composer
@@ -40,7 +28,6 @@
 !/setup-git
 !/setup-gpg
 !/setup-local-php
-!/setup-local-php-from-ppa
 !/setup-personal
 !/setup-phpstorm
 !/setup-ruby

@@ -1,7 +1,0 @@
-#!/bin/bash
-
-# Switches PHP to version 8.0.
-
-source 'php-version-switcher.sh'
-
-switch_to_php_version '8.0'
