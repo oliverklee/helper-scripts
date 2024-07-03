@@ -27,7 +27,7 @@ linefeed
 
 BASH_CONFIGURATION_FILE=~/.bashrc
 touch "${BASH_CONFIGURATION_FILE}"
-CURRENT_DIRECTORY=`dirname "$0"`
+CURRENT_DIRECTORY=$(dirname "$0")
 
 echo 'Configuring branch display on the shell …'
 if grep -q 'parse_git_branch' "${BASH_CONFIGURATION_FILE}"; then

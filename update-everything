@@ -17,7 +17,7 @@ success 'Done.'
 linefeed
 
 echo 'Updating Discord …'
-PACKAGE_REPORT=`dpkg -s discord`
+PACKAGE_REPORT=$(dpkg -s discord)
 if echo "${PACKAGE_REPORT}" | grep -q 'install ok installed'; then
   source 'install-latest-discord.sh'
 else
@@ -25,10 +25,10 @@ else
 fi
 linefeed
 
-PATH_REPORT=`which gem`
+PATH_REPORT=$(which gem)
 if echo "$PATH_REPORT" | grep -q 'gem'; then
   echo 'Updating dip …'
-  GEM_REPORT=`gem search --local '^dip$'`
+  GEM_REPORT=$(gem search --local '^dip$')
   if echo "${GEM_REPORT}" | grep -q 'dip '; then
     gem update dip --user-install;
     success 'Done.'
@@ -39,7 +39,7 @@ if echo "$PATH_REPORT" | grep -q 'gem'; then
 fi
 
 echo 'Updating Composer …'
-COMPOSER_REPORT=`which composer`
+COMPOSER_REPORT=$(which composer)
 if echo "${COMPOSER_REPORT}" | grep -q '/composer'; then
   composer selfupdate;
   success 'Done.'

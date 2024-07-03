@@ -8,7 +8,7 @@ setup-docker
 linefeed
 
 echo 'Installing DDEV …'
-PACKAGE_REPORT=`dpkg -s ddev`
+PACKAGE_REPORT=$(dpkg -s ddev)
 if echo "$PACKAGE_REPORT" | grep -q 'install ok installed'; then
   success 'Already installed.';
 else
