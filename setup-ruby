@@ -17,7 +17,7 @@ linefeed
 echo 'Adding the gem bin directory to the path …'
 BASH_CONFIGURATION_FILE=~/.bashrc
 touch "${BASH_CONFIGURATION_FILE}"
-CURRENT_DIRECTORY=`dirname "$0"`
+CURRENT_DIRECTORY=$(dirname "$0")
 if grep -q '.gem' "${BASH_CONFIGURATION_FILE}"; then
   success 'Already configured.';
 else
@@ -28,7 +28,7 @@ fi
 linefeed
 
 echo 'Installing RubyMine …'
-PACKAGE_REPORT=`snap list`
+PACKAGE_REPORT=$(snap list)
 if echo "$PACKAGE_REPORT" | grep -q '^rubymine '; then
   success 'Already installed.';
 else
@@ -38,7 +38,7 @@ fi
 linefeed
 
 echo 'Installing the Heroku CLI …'
-PACKAGE_REPORT=`dpkg -s heroku`
+PACKAGE_REPORT=$(dpkg -s heroku)
 if echo "$PACKAGE_REPORT" | grep -q 'install ok installed'; then
   success 'Already installed.';
 else

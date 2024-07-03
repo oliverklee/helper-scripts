@@ -5,7 +5,7 @@
 source 'output.sh'
 
 echo 'Installing Discord …'
-PACKAGE_REPORT=`dpkg -s discord`
+PACKAGE_REPORT=$(dpkg -s discord)
 if echo "${PACKAGE_REPORT}" | grep -q 'install ok installed'; then
   success 'Already installed.';
 else
@@ -14,7 +14,7 @@ fi
 linefeed
 
 echo 'Installing Slack …'
-PACKAGE_REPORT=`dpkg -s slack-desktop`
+PACKAGE_REPORT=$(dpkg -s slack-desktop)
 if echo "${PACKAGE_REPORT}" | grep -q 'install ok installed'; then
   success 'Already installed.';
 else
@@ -23,7 +23,7 @@ fi
 linefeed
 
 echo 'Installing Zoom …'
-PACKAGE_REPORT=`snap list`
+PACKAGE_REPORT=$(snap list)
 if echo "${PACKAGE_REPORT}" | grep -q '^zoom-client '; then
   success 'Already installed.';
 else
@@ -33,7 +33,7 @@ fi
 linefeed
 
 echo 'Installing Signal …'
-PACKAGE_REPORT=`snap list`
+PACKAGE_REPORT=$(snap list)
 if echo "${PACKAGE_REPORT}" | grep -q '^signal-desktop '; then
   success 'Already installed.';
 else

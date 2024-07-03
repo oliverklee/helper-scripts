@@ -5,7 +5,7 @@
 source 'output.sh'
 
 echo 'Installing Docker CE …'
-PACKAGE_REPORT=`dpkg -s docker-ce`
+PACKAGE_REPORT=$(dpkg -s docker-ce)
 if echo "$PACKAGE_REPORT" | grep -q 'install ok installed'; then
   success 'Already installed.';
 else

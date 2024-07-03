@@ -5,7 +5,7 @@
 source 'output.sh'
 
 echo 'Installing PhpStorm …'
-PACKAGE_REPORT=`snap list`
+PACKAGE_REPORT=$(snap list)
 if echo "$PACKAGE_REPORT" | grep -q '^phpstorm '; then
   success 'Already installed.';
 else

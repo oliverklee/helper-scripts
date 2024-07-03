@@ -55,7 +55,7 @@ success 'Done.'
 linefeed
 
 echo 'Installing Google Chrome …'
-PACKAGE_REPORT=`dpkg -s google-chrome-stable`
+PACKAGE_REPORT=$(dpkg -s google-chrome-stable)
 if echo "$PACKAGE_REPORT" | grep -q 'install ok installed'; then
   success 'Already installed.';
 else
@@ -68,7 +68,7 @@ fi
 linefeed
 
 echo 'Installing Thunderbird …'
-PACKAGE_REPORT=`snap list`
+PACKAGE_REPORT=$(snap list)
 if echo "${PACKAGE_REPORT}" | grep -q '^thunderbird '; then
   success 'Already installed.';
 else
@@ -78,7 +78,7 @@ fi
 linefeed
 
 echo 'Installing Dropbox …'
-PACKAGE_REPORT=`dpkg -s dropbox`
+PACKAGE_REPORT=$(dpkg -s dropbox)
 if echo "$PACKAGE_REPORT" | grep -q 'install ok installed'; then
   success 'Already installed.';
 else
