@@ -10,7 +10,7 @@ FILENAME=~/.ssh/id_ed25519
 if [ -f "${FILENAME}" ]; then
   success "Nothing do - there already is a SSH key.";
 else
-  read -p 'Comment/description of the SSH key (usually user@host): ' comment
+  read -r -p 'Comment/description of the SSH key (usually user@host): ' comment
   ssh-keygen -t ed25519 -C "${comment}"
   success 'Done.'
 fi
