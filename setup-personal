@@ -5,7 +5,7 @@
 source 'output.sh'
 
 echo 'Setting up personal settings for Oliver Klee …'
-read -p 'Are you Oliver Klee? [y/N] ' identity
+read -r -p 'Are you Oliver Klee? [y/N] ' identity
 if [ "${identity}" != 'y' ]; then
   notice 'Okay then. Exiting.'
   exit 0
