@@ -35,7 +35,7 @@ else
 
   echo 'Fixing permissions …'
   sudo groupadd docker
-  sudo usermod -aG docker $USER
+  sudo usermod -aG docker "${USER}"
   success 'Done.'
   echo 'Please restart your computer for the new permissions to take effect. (Loggin out and back in is not enough.)'
 fi
