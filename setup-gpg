@@ -5,7 +5,7 @@
 source 'output.sh'
 
 echo 'Installing packages …'
-sudo apt-get install -y \
+sudo apt-get install -y --no-install-recommends --no-install-suggests \
   gnupg \
   gnupg-agent \
   libccid \
