@@ -5,7 +5,7 @@
 #
 
 SLACK_PATH='/tmp/slack-desktop-latest.deb'
-wget -q https://slack.com/downloads/instructions/ubuntu -O - \
+wget -q https://slack.com/downloads/instructions/linux?build=deb -O - \
 | tr "\t\r\n'" '   "' \
 | grep -i -o '<a[^>]\+href[ ]*=[ \t]*"\(ht\|f\)tps\?:[^"]\+"' \
 | sed -e 's/^.*"\([^"]\+\)".*$/\1/g' \
