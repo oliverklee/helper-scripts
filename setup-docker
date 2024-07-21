@@ -37,5 +37,5 @@ else
   sudo groupadd docker
   sudo usermod -aG docker "${USER}"
   success 'Done.'
-  echo 'Please restart your computer for the new permissions to take effect. (Loggin out and back in is not enough.)'
+  echo 'Please restart your computer for the new permissions to take effect. (Logging out and back in is not enough.)'
 fi
