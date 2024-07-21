@@ -23,8 +23,10 @@ touch "${GPG_CONFIGURATION_FILE}"
 if grep -q '^keyid-format' "${GPG_CONFIGURATION_FILE}"; then
   echo 'Already configured.';
 else
-  echo  >> "${GPG_CONFIGURATION_FILE}"
-  echo '# Always use long key IDs' >> "${GPG_CONFIGURATION_FILE}"
-  echo 'keyid-format 0xlong' >> "${GPG_CONFIGURATION_FILE}"
+  {
+    echo ''
+    echo '# Always use long key IDs'
+    echo 'keyid-format 0xlong'
+  } >> "${GPG_CONFIGURATION_FILE}"
   success 'Done.'
 fi
