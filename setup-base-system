@@ -8,7 +8,7 @@ update-everything
 linefeed
 
 echo 'Installing the most relevant packages …'
-sudo apt-get install -y \
+sudo apt-get install -y --no-install-recommends --no-install-suggests \
   apt-show-versions \
   aptitude \
   ausweisapp2 \
@@ -35,7 +35,7 @@ success 'Done.'
 linefeed
 
 echo 'Installing supporting packages for Krusader …'
-sudo apt-get install -y \
+sudo apt-get install -y --no-install-recommends --no-install-suggests \
   arj \
   bzip2 \
   coreutils \

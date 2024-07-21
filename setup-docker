@@ -12,7 +12,7 @@ else
   echo 'Removing old Docker versions …'
   sudo-get apt purge docker docker-engine docker.io 2>/dev/null
   sudo apt-get update
-  sudo apt-get install -y ca-certificates curl gnupg
+  sudo apt-get install -y --no-install-recommends --no-install-suggests ca-certificates curl gnupg
 
   echo 'Setting up repository …'
   sudo install -m 0755 -d /etc/apt/keyrings

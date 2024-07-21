@@ -5,7 +5,7 @@
 source 'output.sh'
 
 echo 'Installing local PHP …'
-sudo apt-get install -y \
+sudo apt-get install -y --no-install-recommends --no-install-suggests \
 "php-cli" \
 "php-common" \
 "php-curl" \
