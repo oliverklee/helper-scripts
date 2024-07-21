@@ -43,9 +43,11 @@ echo 'Configuring Bash autocompletion …'
 if grep -q '/usr/share/bash-completion/completions/git' "${BASH_CONFIGURATION_FILE}"; then
   success 'Already configured.';
 else
-  echo '' >> "${BASH_CONFIGURATION_FILE}"
-  echo '# Bash autocompletion for git' >> "${BASH_CONFIGURATION_FILE}"
-  echo 'source /usr/share/bash-completion/completions/git' >> "${BASH_CONFIGURATION_FILE}"
+  {
+    echo ''
+    echo '# Bash autocompletion for git'
+    echo 'source /usr/share/bash-completion/completions/git'
+  } >> "${BASH_CONFIGURATION_FILE}"
   success 'Done.'
 fi
 linefeed
