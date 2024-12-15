@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# Prunes all re-downloadable Docker and Podman containers.
+
+source 'output.sh'
+
+echo 'Cleaning re-downloadable DDEV things …'
+DDEV_REPORT=$(which ddev)
+if echo "${DDEV_REPORT}" | grep -q '/ddev'; then
+  ddev clean -a;
+  success 'Done.'
+else
+  echo 'Not installed.';
+fi
+linefeed
+
+echo 'Pruning re-downloadable Docker things …'
+DOCKER_REPORT=$(which docker)
+if echo "${DOCKER_REPORT}" | grep -q '/docker'; then
+  docker system prune -a;
+  success 'Done.'
+else
+  echo 'Not installed.';
+fi
+linefeed
+
+echo 'Pruning re-downloadable Podman things …'
+PODMAN_REPORT=$(which podman)
+if echo "${PODMAN_REPORT}" | grep -q '/podman'; then
+  podman system prune -a;
+  success 'Done.'
+else
+  echo 'Not installed.';
+fi

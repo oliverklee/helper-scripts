@@ -11,6 +11,8 @@
 !/bashrc-for-git.dist
 !/bashrc-for-rubygems.dist
 !/colors.sh
+!/container-prune-all
+!/container-prune-unused
 !/create-ssh-key
 !/fstrim-all
 !/git-tools.sh
