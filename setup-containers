@@ -39,3 +39,18 @@ else
   success 'Done.'
   echo 'Please restart your computer for the new permissions to take effect. (Logging out and back in is not enough.)'
 fi
+linefeed
+
+echo 'Preventing conflicts between Podman and Docker …'
+BASH_CONFIGURATION_FILE=~/.bashrc
+touch "${BASH_CONFIGURATION_FILE}"
+if grep -q 'DOCKER_HOST' "${BASH_CONFIGURATION_FILE}"; then
+  success 'Already set up.';
+else
+  {
+    echo ''
+    echo '# Prevent Podman from interfering with DDEV'
+    echo "unset DOCKER_HOST"
+  } >> "${BASH_CONFIGURATION_FILE}"
+  success 'Done.'
+fi
