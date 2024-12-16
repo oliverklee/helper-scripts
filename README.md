@@ -30,8 +30,8 @@ Most of these scripts probably are Ubuntu-specific.
 | `package-cleanup`        | purges all configured-but-not-installed packages        |
 | `setup-base-system`      | installs the most important applications and settings   |
 | `setup-composer`         | installs Composer (but not PHP)                         |
+| `setup-containers`       | installs Docker (CE)                                    |
 | `setup-ddev`             | installs DDEV (and Docker CE)                           |
-| `setup-docker`           | installs Docker (CE)                                    |
 | `setup-git`              | installs and configures git                             |
 | `setup-gpg`              | installs and configures GPG                             |
 | `setup-local-php`        | sets up a local PHP version using the system packages   |
