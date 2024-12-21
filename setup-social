@@ -25,13 +25,11 @@ fi
 linefeed
 
 echo 'Installing Zoom …'
-PACKAGE_REPORT=$(snap list)
-if echo "${PACKAGE_REPORT}" | grep -q '^zoom-client '; then
+PACKAGE_REPORT=$(dpkg -s zoom)
+if echo "${PACKAGE_REPORT}" | grep -q 'install ok installed'; then
   success 'Already installed.';
 else
-  sudo snap install zoom-client --channel=latest/edge
-  sudo snap connect zoom-client:screencast-legacy
-  success 'Done.'
+  source 'install-latest-zoom.sh'
 fi
 linefeed
 
