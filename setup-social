@@ -30,6 +30,7 @@ if echo "${PACKAGE_REPORT}" | grep -q '^zoom-client '; then
   success 'Already installed.';
 else
   sudo snap install zoom-client --channel=latest/edge
+  sudo snap connect zoom-client:screencast-legacy
   success 'Done.'
 fi
 linefeed
