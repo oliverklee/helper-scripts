@@ -1,0 +1,747 @@
+##################################################
+# Configuration file for backup2l                #
+##################################################
+
+
+# Define the backup2l version for which the configuration file is written.
+# This way, future versions can automatically warn if the syntax has changed.
+FOR_VERSION=1.6
+
+
+##################################################
+# Volume identification
+
+# This is the prefix for all output files;
+# multiple volumes can be handled by using different configuration files
+VOLNAME="all"
+
+
+
+##################################################
+# Source files
+
+# List of directories to make backups of.
+# All paths MUST be absolute and start with a '/'!
+SRCLIST=(
+/etc
+/home
+/opt/data
+/root
+/usr/local
+)
+
+# The following expression specifies the files not to be archived.
+# See the find(1) man page for further info. It is discouraged to
+# use anything different from conditions (e. g. actions) as it may have
+# unforeseeable side effects.
+
+SKIPCOND=(
+
+########################################
+# explicit no-backup (in directory names)
+########################################
+-path "*.nobackup*"
+
+
+########################################
+# re-downloadable stuff
+########################################
+
+# Debian packages
+-o -name "*.deb"
+
+# ISO (DVD/CD) images
+-o -name "*.iso"
+
+# Discord caches and settings
+-o -path "*/.config/discord/*"
+
+# Chrome settings (should be synced)
+-o -path "*/.config/google-chrome/*"
+
+# itch.io settings and games
+-o -path "*/.config/itch/*"
+
+# Dropbox binaries and caches
+-o -path "*/.dropbox-dist/*"
+
+# Podman images
+-o -path "*/.local/share/containers/*"
+
+# Gems
+-o -path "*/.local/share/gem/*"
+
+# Flatpak applications
+-o -path "*/.local/share/flatpak/*"
+
+# Ruby advisories
+-o -path "*/.local/share/ruby-advisory-db/*"
+
+# PHIVE PHARS
+-o -path "*/.phive/phars/*"
+
+# downloaded steam games and Windows bottles (common: apps, compatdata: bottles)
+-o -path "*/.steam/debian-installation/steamapps/*"
+-o -path "*/.steam/steam/steamapps/*"
+
+# Steam container and libraries (probably)
+-o -name "steamclient.dll"
+-o -name "steamclient64.dll"
+-o -path "*/.steam/debian-installation/linux32/*"
+-o -path "*/.steam/debian-installation/linux64/*"
+-o -path "*/.steam/debian-installation/package/*"
+-o -path "*/.steam/debian-installation/steamui/*"
+-o -path "*/.steam/debian-installation/ubuntu12_32/*"
+-o -path "*/.steam/debian-installation/ubuntu12_64/*"
+
+# Skyrim mods
+-o -path "*/.steam/Vortex Mods/*"
+
+# personal downloads
+-o -path "*/Downloads/*"
+
+# Node.js modules
+-o -path "*/node_modules/*"
+
+# synced settings for JetBrains IDEs
+-o -path "*/settingsSync/*"
+
+# Snap apps
+-o -path "*/snap/*"
+
+# Composer packages
+-o -path "*/vendor/*"
+
+
+########################################
+# caches
+########################################
+
+# other caches
+-o -name "*.cache"
+-o -path "*/.cache/*"
+
+# Steam caches
+-o -name "licensecache"
+-o -name "remotecache.vdf"
+-o -path "*/.steam/debian-installation/appcache/*"
+-o -path "*/.steam/debian-installation/config/avatarcache/*"
+-o -path "*/.steam/debian-installation/config/htmlcache/*"
+-o -path "*/.steam/debian-installation/depotcache/*"
+-o -path "*/.steam/debian-installation/steam/cached/*"
+-o -path "*/.steam/debian-installation/tenfoot/*"
+-o -path "*/htmlcache/*"
+-o -path "*/librarycache/*"
+-o -path "*/shadercache/*"
+-o -path "*/shaderhitcache/*"
+
+# Resident Evil 4 shader caches
+-o -name "*.cache2"
+
+# Git rerere cache
+-o -path "*/.git/rr-cache/*"
+
+# Thunderbird caches
+-o -name "cache.sqlite"
+-o -name "folderCache.json"
+
+# LibreOffice caches
+-o -name "pspfontcache"
+-o -path "*/user/uno_packages/cache/*"
+
+# Mesa shader caches
+-o -path "*/cache/mesa_shader_cache_db/*"
+
+# Vulkan pipeline caches
+-o -path "*/vulkan-pipeline-cache/*"
+
+# cached keyboard layouts
+-o -path "*/conf/cached_layouts*"
+
+# Composer cache
+-o -path "*/.composer/cache/*"
+
+# Git RR cache
+-o -path "*/.git/rr-cache/*"
+
+# KDE Plasma caches
+-o -path "*/.kde/cache*"
+
+# Launchpad caches
+-o -path "*/.launchpadlib/api.launchpad.net/cache/*"
+
+# Podman caches
+-o -path "*/.local/share/containers/cache/*"
+
+# Firefox cache
+-o -path "*/.mozilla/firefox/*/storage/default/*/cache/*"
+
+# PHIVE caches
+-o -path "*/.phive/http-cache/*"
+
+# web caches for Chrome, Slack and Steam
+-o -path "*/CacheStorage/*"
+
+# code caches for Steam, JetBrains IDEs, Signal, Zoom, Discord, Slack
+-o -path "*/Code Cache/*"
+
+# Zoom caches
+-o -path "*/cefcache/*"
+
+# code caches for JetBrains IDEs, Zoom, Chrome
+-o -path "*/GrShaderCache/*"
+
+# caches for Slack and Chrome
+-o -path "*/ScriptCache/*"
+
+# Slack caches
+-o -path "*/Slack/Cache/*"
+
+# Windows caches in Proton
+-o -path "*/Windows/INetCache/*"
+
+# TYPO3 caches
+-o -path "*/var/cache/*"
+
+
+########################################
+# transient things
+########################################
+
+# recently used
+-o -name "recently-used.xbel"
+-o -name ".recently-used"
+
+# bash history
+-o -name ".bash_history"
+
+# GitHub Copilot sessions
+-o -path "*/github-copilot/ps/chat-sessions/*"
+
+
+########################################
+# logs
+########################################
+
+# general logs
+-o -path "*/log/*"
+-o -path "*/logs/*"
+
+# huge error logs from PhpStorm
+-o -name "*.hprof"
+
+# TYPO3 deprecation log
+-o -name "deprecation*.log"
+
+# Minion log
+-o -name "minion.log"
+
+# SDDM Wayland session log
+-o -name "wayland-session.log"
+
+
+#########################
+# huge development stuff
+#########################
+
+# Docker
+-o -path "*/.docker/*"
+-o -path "*/.npm/*"
+-o -path "*/.nvm/*"
+-o -path "*/.vagrant.d/*"
+-o -path "*/Crash Reports/*"
+-o -path "*/VirtualBox VMs/*"
+
+# generated things
+-o -name "*.mfasl"
+-o -path "*/.Build/*"
+-o -path "*/.local/share/akonadi/*"
+-o -path "*/.local/share/baloo/*"
+-o -path "*/.local/share/lutris/*"
+-o -path "*/.local/share/okular/docdata/*"
+-o -path "*/.mozilla/firefox/*/datareporting/archived/*"
+-o -path "*/.thumbnails/*"
+-o -path "*/.thunderbird/*/datareporting/archived/*"
+-o -path "*/.xvpics"
+-o -path "*/Documentation-GENERATED-temp/*"
+-o -path "*/_processed_/*"
+-o -path "*/assets/compressed/*"
+-o -path "*/saved-telemetry-pings/*"
+-o -path "*/system/index/*"
+
+# compiled Rails assets
+-o -path "*/public/packs-test/*"
+-o -path "*/public/packs/*"
+
+# temporary data
+-o -path "*/.local/share/RecentDocuments/*"
+-o -path "*/_temp_/*"
+-o -path "*/tmp/*"
+-o -path "*/typo3temp/*"
+-o -path "*/var/lock/*"
+
+# Process IDs
+-o -name ".attach_pid*"
+-o -name ".steampid"
+-o -name "steam.pid"
+
+# SUDO success marker
+-o -name ".sudo_as_admin_successful"
+
+# backups
+-o -name "*-old.phar"
+-o -name "*.backup"
+-o -name "*~"
+
+# not-so important transient stuff
+-o -name "*.aux"
+-o -name "*.toc"
+-o -name ".xsession-errors"
+
+-o -path "*/.local/share/Trash/*"
+-o -path "*/.local/share/kactivitymanagerd/resources/*"
+
+# sockets
+-o -path "*/.dropbox/command_socket"
+-o -path "*/.dropbox/iface_socket"
+
+# dbus sessions
+-o -path "*/.dbus/session-bus/*"
+
+)
+
+# Some background on 'SKIPCOND': The method of using a find(1) expression to determine
+# files to backup or to skip is very powerful. Some of the following examples result from feature
+# requests by various users who were not always aware that their "feature" was already implemented. ;-)
+#
+# If you want to exclude several directories use the following expression:
+#   SKIPCOND=(-path '/path1' -o -path '/path1/*' -o -path '/path2' -o -path '/path2/*')
+#
+# If you do not have anything to skip, use:
+#   SKIPCOND=(-false)     # "SKIPCOND=()" does not work
+#
+# To skip directory trees (for performance reasons) you can add the '-prune' action to your SKIPCOND setting, e.g.:
+#   SKIPCOND=( -name "unimportant_dir" -prune )
+#
+# To prevent backup2l from crossing filesystem boundaries you can add '-xdev' or '-mount' to your SKIPCOND setting.
+
+
+
+
+##################################################
+# Destination
+
+# Mount point of backup device (optional)
+BACKUP_DEV="/backup"
+
+# Destination directory for backups;
+# it must exist and must not be the top-level of BACKUP_DEV
+BACKUP_DIR="/backup/raw"
+
+
+
+##################################################
+# Backup parameters
+
+# Number of levels of differential backups (1..9)
+MAX_LEVEL=3
+
+# Maximum number of differential backups per level (1..9)
+MAX_PER_LEVEL=8
+
+# Maximum number of full backups (1..8)
+MAX_FULL=2
+
+# For differential backups: number of generations to keep per level;
+# old backups are removed such that at least GENERATIONS * MAX_PER_LEVEL
+# recent versions are still available for the respective level
+GENERATIONS=1
+
+# If the following variable is 1, a check file is automatically generated
+CREATE_CHECK_FILE=1
+
+
+
+##################################################
+# Pre-/Post-backup functions
+
+# This user-defined bash function is executed before a backup is made
+PRE_BACKUP ()
+{
+    echo "  making backups of the most important configuration files ..."
+    for FILENAME in backup2l.conf fstab group passwd; do
+        echo "${FILENAME}"
+        sudo cp -a "/etc/${FILENAME}" /backup/configuration/
+     done
+
+    # On a Debian system, the following statements dump a machine-readable list of
+    # all installed packages to a file.
+    echo "  writing dpkg selections to /root/dpkg-selections.log ..."
+    dpkg --get-selections > /root/dpkg-selections.log
+    echo "  writing package version information to /root/package-versions.log ..."
+    apt-show-versions > /root/package-versions.log
+}
+
+# This user-defined bash function is executed after a backup is made
+POST_BACKUP ()
+{
+    echo "  Nothing to do"
+}
+
+
+
+##################################################
+# Misc.
+
+# Create a backup when invoked without arguments?
+AUTORUN=1
+
+# Size units
+SIZE_UNITS=""    # set to "B", "K", "M" or "G" to obtain unified units in summary list
+
+# Time zone for meta data
+TIME_ZONE="UTC" # if unset (= ""), the local time zone is used for backup meta data;
+                # For new archives, the value "UTC" is recommended. However, older versions (<= 1.5) used local time,
+                # and changing the value causes backup2l to consider ALL files as new. So, change this value with care!
+
+# Remove this line after the setup is finished.
+UNCONFIGURED=0
+
+# Archive driver for new backups (default = "DRIVER_TAR_GZ")
+#CREATE_DRIVER="DRIVER_TAR_BZ2"
+CREATE_DRIVER=DRIVER_TAR_PIGZ
+
+# Usable built-in drivers for CREATE_DRIVER:
+# DRIVER_TAR, DRIVER_TAR_GZ, DRIVER_TAR_BZ2, DRIVER_AFIOZ
+
+
+
+##################################################
+# User-defined archive drivers (optional)
+
+# This section demonstrates how user-defined archive drivers can be added.
+# The example shows a modified version of the "afioz" driver with some additional parameters
+# one may want to pass to afio in order to tune the speed, archive size etc. .
+# An archive driver consists of a bash function named
+# "DRIVER_<your-driver-name>" implementing the (sometimes simple) operations "-test", "-suffix",
+# "-create", "-toc", and "-extract".
+
+# If you do not want to write your own archive driver, you can remove the remainder of this file.
+
+# registering custom drivers below for use as CREATE_DRIVER (optional)
+#USER_DRIVER_LIST="DRIVER_MY_AFIOZ DRIVER_MY_AFIOBZ2 DRIVER_GZ_SPLIT DRIVER_ZIP"
+
+DRIVER_MY_AFIOZ ()
+{
+    case $1 in
+        -test)
+            # This function should check whether all prerequisites are met, especially if all
+            # required tools are installed. This prevents backup2l to fail in inconvenient
+            # situations, e. g. during a backup or restore operation. If everything is ok, the
+            # string "ok" should be returned. Everything else is interpreted as a failure.
+            require_tools afio
+                # The function 'require_tools' checks for the existence of all tools passed as
+                # arguments. If one of the tools is not found by which(1), an error message is
+                # displayed and the function does not return.
+            echo "ok"
+            ;;
+        -suffix)
+            # This function should return the suffix of backup archive files. If the driver
+            # does not create a file (e. g. transfers the backup data immediately to a tape
+            # or network device), an empty string has to be returned. backup2l uses this suffix
+            # to select a driver for unpacking. If a user-configured driver supports the same
+            # suffix as a built-in driver, the user driver is preferred (as in this case).
+            echo "afioz"
+            ;;
+        -create)        # Arguments: $2 = BID, $3 = archive file name, $4 = file list file
+            # This function is called to create a backup file. The argument $3 is the full file
+            # name of the archive file including path and suffix. $4 contains an alphabetically
+            # sorted  list of files (full pathname) to be backed up. Directories are not contained,
+            # they are handled by backup2l directly without using the driver.
+            # All output to stderr should be directed to stdout ("2>&1").
+            afio -Zo -G 9 -M 30m -T 2k $3 < $4 2>&1
+                # This line passes some additional options to afio (see afio(1)):
+                # '-G 9' maximizes the compression by gzip.
+                # '-M 30m' increases the size of the internal file buffer. Larger files have to
+                #     be compressed twice.
+                # '-T 2k' prevents the compression of files smaller than 2k in order to save time.
+            ;;
+        -toc)           # Arguments: $2 = BID, $3 = archive file name
+            # This function is used to validate the correct generation of an archive file.
+            # The output is compared to the list file passed to the '-create' function.
+            # Any difference is reported as an error.
+            afio -Zt $3 | sed 's#^#/#'
+                # The sed command adds a leading slash to each entry.
+            ;;
+        -extract)       # Arguments: $2 = BID, $3 = archive file name, $4 = file list file
+            # This function is called by backup2l's restore procedure for each archive.
+            # It is extremely important that only those files contained in $4 are restored.
+            # Otherwise it may happen that files are overwritten by incorrect (e. g. older)
+            # versions of the same file.
+            afio -Zinw $4 $3 2>&1
+            ;;
+    esac
+}
+
+
+
+##################################################
+# More sample archive drivers (optional)
+
+# This is an unordered collection of drivers that may be useful for you,
+# either to use them directly or to derive own drivers.
+
+
+
+# Here's a version of the standard DRIVER_TAR_GZ driver,
+# modified to split the output archive file into multiple sections.
+# (donated by Michael Moedt)
+DRIVER_TAR_GZ_SPLIT ()
+{
+    case $1 in
+        -test)
+            require_tools tar split cat
+            echo "ok"
+            ;;
+        -suffix)
+            echo "tgz_split"
+            ;;
+        -create)        # Arguments: $2 = BID, $3 = archive file name, $4 = file list file
+            mkdir -p ${3}
+            tar cz --no-recursion -T $4 | split --bytes=725100100 - ${3}/part_
+            ;;
+        -toc)           # Arguments: $2 = BID, $3 = archive file name
+            cat ${3}/part_* | tar tz | sed 's#^#/#'
+            ;;
+        -extract)       # Arguments: $2 = BID, $3 = archive file name, $4 = file list file
+            cat ${3}/part_* | tar xz --same-permission --same-owner -T $4 2>&1
+            ;;
+    esac
+}
+
+
+
+# The following driver is equivalent to the built-in DRIVER_TAR_GZ driver, but
+# does not change the access times of the original files during backup
+# (Adrian Bunk, Gundolf Kiefer)
+DRIVER_TAR_GZ ()
+{
+    case $1 in
+        -test)
+            require_tools tar
+            echo "ok"
+            ;;
+        -suffix)
+            echo "tar.gz"
+            ;;
+        -create)        # Arguments: $2 = BID, $3 = archive file name, $4 = file list file
+            tar czf $3 --no-recursion -T $4 --atime-preserve 2>&1 \
+                | grep -v 'tar: Removing leading .* from .* names'
+            ;;
+        -toc)           # Arguments: $2 = BID, $3 = archive file name
+            tar tzf $3 | sed 's#^#/#'
+            ;;
+        -extract)       # Arguments: $2 = BID, $3 = archive file name, $4 = file list file
+            tar zx --same-permission --same-owner -f $3 -T $4 2>&1
+            ;;
+    esac
+}
+
+
+
+# This driver uses afio and bzip2, where bzip2 is invoked by afio.
+# (donated by Carl Staelin)
+DRIVER_MY_AFIOBZ2 ()
+{
+    case $1 in
+        -test)
+            require_tools afio bzip2
+            echo "ok"
+            ;;
+        -suffix)
+            echo "afio-bz2"
+            ;;
+        -create)        # Arguments: $2 = BID, $3 = archive file name, $4 = file list file
+            afio -z -1 m -P bzip2 -Q -9 -Z -M 50m -T 1k -o $3 <$4 2>&1
+                # This line passes some additional options to afio (see afio(1)):
+                # '-P bzip2' utilizes bzip2 as an external compressor
+                # '-Q 9' maximizes the compression by bzip2.
+                # '-M 50m' increases the size of the internal file buffer. Larger files have to
+                #     be compressed twice.
+                # '-T 1k' prevents the compression of files smaller than 1k in order to save time.
+            ;;
+        -toc)           # Arguments: $2 = BID, $3 = archive file name
+            afio -t -Z -P bzip2 -Q -d - <$3 | sed 's#^#/#'
+                # The sed command adds a leading slash to each entry.
+            ;;
+        -extract)       # Arguments: $2 = BID, $3 = archive file name, $4 = file list file
+            afio -Zinw $4 -P bzip2 -Q -d - <$3 2>&1
+            ;;
+    esac
+}
+
+
+# This driver uses afio and bzip2, such that the I/O stream is piped through bzip2.
+# (donated by Carl Staelin)
+DRIVER_MY_AFIO_BZ2 ()
+{
+    case $1 in
+        -test)
+            require_tools afio bzip2
+            echo "ok"
+            ;;
+        -suffix)
+            echo "afio.bz2"
+            ;;
+        -create)        # Arguments: $2 = BID, $3 = archive file name, $4 = file list file
+            afio -o - < $4 | bzip2 --best > $3 2>&1
+            ;;
+        -toc)           # Arguments: $2 = BID, $3 = archive file name
+            bzip2 -d < $3 | afio -t - | sed 's#^#/#'
+                # The sed command adds a leading slash to each entry.
+            ;;
+        -extract)       # Arguments: $2 = BID, $3 = archive file name, $4 = file list file
+            bzip2 -d < $3 | afio -inw $4 - 2>&1
+            ;;
+    esac
+}
+
+
+
+# This driver uses the Info-ZIP tools to generate zip files. Unfourtunately unzip
+# expects all file names to be on the command line. So unless there is a work-
+# around it's not possible to use the "-extract" command.
+# (donated by Georg Lutz)
+DRIVER_ZIP ()
+{
+    case $1 in
+    	-test)
+	    require_tools zip
+	    echo "ok"
+           ;;
+        -suffix)
+            echo "zip"
+            ;;
+        -create)        # Arguments: $2 = BID, $3 = archive file name, $4 = file list file
+	    cat $4| zip -qy $3 -@
+            ;;
+        -toc)           # Arguments: $2 = BID, $3 = archive file name
+            zipinfo -1 $3| sed 's#^#/#'
+            ;;
+        -extract)       # Arguments: $2 = BID, $3 = archive file name, $4 = file list file
+           echo "Not implemented yet! Sorry."
+	   #unzip $3
+            ;;
+    esac
+}
+
+
+
+# This driver uses tar and pipes the output through gnupg. You can specifiy
+# the passphrase in a file (/etc/backup2l.pass in the example). You have to
+# invoke gpg at least one time before backup because gnupg has to initiate
+# first thing in the home directory.
+DRIVER_TAR_GPG ()
+{
+    case $1 in
+	-test)
+	    require_tools tar gpg
+	    echo "ok"
+	    ;;
+        -suffix)
+            echo "tar.pgp"
+            ;;
+        -create)        # Arguments: $2 = BID, $3 = archive file name, $4 = file list file
+            tar -c --no-recursion -T $4 | /usr/bin/gpg --batch --no-tty -q --passphrase-fd 3 3</etc/backup2l.pass -c -  > $3
+            ;;
+        -toc)           # Arguments: $2 = BID, $3 = archive file name
+            /usr/bin/gpg --batch --no-tty -q --passphrase-fd 3 3</etc/backup2l.pass -d $3 2>/dev/null | tar t | sed 's#^#/#'
+            ;;
+        -extract)       # Arguments: $2 = BID, $3 = archive file name, $4 = file list file
+             /usr/bin/gpg --batch --no-tty -q --passphrase-fd 3 3</etc/backup2l.pass -d $3 2>/dev/null | tar -x --same-permission --same-owner -T $4 2>&1
+            ;;
+    esac
+}
+
+
+
+# PIGZ driver (donated by Thomas R. Bailey <siggma@trbailey.net>)
+#             (improved by Sven Hartge <sven@svenhartge.de>)
+#
+# NOTES: USE ONLY WITH MULTI CORE CPU
+# REQUIRES YOU TO DOWNLOAD AND COMPILE PIGZ
+# OR INSTALL IT FROM YOUR DISTRO REPOSITORY
+# http://www.zlib.net/pigz/
+#
+DRIVER_TAR_PIGZ ()
+{
+    case $1 in
+        -test)
+            require_tools tar pigz gzip
+            echo "ok"
+            ;;
+        -suffix)
+            echo "tar.gz"
+            ;;
+        -create)        # Arguments: $2 = BID, $3 = archive file name, $4 = file list file
+            tar cf $3 --no-recursion --atime-preserve -I pigz -T $4 2>&1 | grep -v 'tar: Removing leading .* from .* names'
+            ;;
+        -toc)           # Arguments: $2 = BID, $3 = archive file name
+            tar tf $3 -I pigz | sed 's#^#/#'
+            ;;
+        -extract)       # Arguments: $2 = BID, $3 = archive file name, $4 = file list file
+            tar xf $3 --same-permission --same-owner -I pigz -T $4 2>&1
+            ;;
+    esac
+}
+
+
+
+# This driver uses tar and LZMA (lzip) compression. LZMA compresses better than
+# bzip2, but at the expense of more memory usage. (donated by Amedee Van Gasse)
+DRIVER_TAR_LZ ()
+{
+    case $1 in
+        -test)
+            require_tools tar lzip
+            echo "ok"
+            ;;
+        -suffix)
+            echo "tar.lz"
+            ;;
+        -create)        # Arguments: $2 = BID, $3 = archive file name, $4 = file list file
+            tar -c --no-recursion -T $4 | lzip --best -c > $3 2>&1 \
+                | grep -v 'tar: Removing leading .* from .*'
+            ;;
+        -toc)           # Arguments: $2 = BID, $3 = archive file name
+            lzip -d $3 -c | tar t | sed 's#^#/#'
+            ;;
+        -extract)       # Arguments: $2 = BID, $3 = archive file name, $4 = file list file
+            lzip -d $3 -c | tar -x --same-permission --same-owner -T $4 2>&1
+            ;;
+    esac
+}
+
+# This driver uses tar and XZ compression. XZ compresses better than
+# bzip2, but at the expense of more memory usage. (donated by Sven Hartge)
+DRIVER_TAR_XZ ()
+{
+    case $1 in
+        -test)
+            require_tools tar xz
+            echo "ok"
+            ;;
+        -suffix)
+            echo "tar.xz"
+            ;;
+        -create)        # Arguments: $2 = BID, $3 = archive file name, $4 = file list file
+            tar cJf $3 --no-recursion --atime-preserve -T $4 2>&1 | grep -v 'tar: Removing leading .* from .* names'
+            ;;
+        -toc)           # Arguments: $2 = BID, $3 = archive file name
+            tar tJf $3 | sed 's#^#/#'
+            ;;
+        -extract)       # Arguments: $2 = BID, $3 = archive file name, $4 = file list file
+            tar Jx --same-permission --same-owner -f $3 -T $4 2>&1
+            ;;
+    esac
+}
