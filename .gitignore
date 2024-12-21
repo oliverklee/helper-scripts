@@ -18,6 +18,7 @@
 !/fstrim-all
 !/git-tools.sh
 !/install-latest-slack.sh
+!/install-latest-zoom.sh
 !/main
 !/memflush
 !/output.sh
