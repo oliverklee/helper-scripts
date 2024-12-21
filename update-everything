@@ -16,15 +16,6 @@ sudo snap refresh
 success 'Done.'
 linefeed
 
-echo 'Updating Discord …'
-PACKAGE_REPORT=$(dpkg -s discord)
-if echo "${PACKAGE_REPORT}" | grep -q 'install ok installed'; then
-  source 'install-latest-discord.sh'
-else
-  echo 'Not installed.';
-fi
-linefeed
-
 PATH_REPORT=$(which gem)
 if echo "$PATH_REPORT" | grep -q 'gem'; then
   echo 'Updating dip …'

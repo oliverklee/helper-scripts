@@ -5,11 +5,13 @@
 source 'output.sh'
 
 echo 'Installing Discord …'
-PACKAGE_REPORT=$(dpkg -s discord)
-if echo "${PACKAGE_REPORT}" | grep -q 'install ok installed'; then
+PACKAGE_REPORT=$(snap list)
+if echo "${PACKAGE_REPORT}" | grep -q '^discord '; then
   success 'Already installed.';
 else
-  source 'install-latest-discord.sh'
+  sudo snap install discord
+  sudo snap connect discord:system-observe
+  success 'Done.'
 fi
 linefeed
 
