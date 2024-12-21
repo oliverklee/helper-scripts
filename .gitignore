@@ -8,6 +8,7 @@
 !/README.md
 !/backup-sync
 !/backup-sync.conf.dist
+!/backup2l.conf.dist
 !/bashrc-for-git.dist
 !/bashrc-for-rubygems.dist
 !/colors.sh
