@@ -41,7 +41,7 @@ fi
 echo 'Updating Zoom …'
 PACKAGE_REPORT=$(dpkg -s zoom)
 if echo "${PACKAGE_REPORT}" | grep -q 'install ok installed'; then
-  source 'install-latest-zoom.sh'
+  source 'update-zoom.sh'
 else
   echo 'Not installed.';
 fi
