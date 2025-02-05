@@ -19,7 +19,7 @@ linefeed
 echo 'Updating Flatpak packages …'
 PACKAGE_REPORT=$(dpkg -s flatpak)
 if echo "${PACKAGE_REPORT}" | grep -q 'install ok installed'; then
-  sudo flatpak update
+  sudo flatpak update -y
 else
   echo 'Not installed.';
 fi
