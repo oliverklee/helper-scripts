@@ -55,3 +55,13 @@ if echo "${COMPOSER_REPORT}" | grep -q '/composer'; then
 else
   echo 'Not installed.';
 fi
+linefeed
+
+echo 'Updating PHIVE …'
+PHIVE_REPORT=$(which phive)
+if echo "${PHIVE_REPORT}" | grep -q '/phive'; then
+  phive selfupdate;
+  success 'Done.'
+else
+  echo 'Not installed.';
+fi
