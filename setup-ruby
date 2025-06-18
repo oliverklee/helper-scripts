@@ -47,4 +47,4 @@ else
   linefeed
 fi
 
-setup-docker
+setup-containers
