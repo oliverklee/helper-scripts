@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Installs Discord, Slack, Zoom and Signal.
+# Installs Composer.
 
 source 'output.sh'
 
