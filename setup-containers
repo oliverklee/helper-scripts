@@ -16,6 +16,7 @@ else
 
   echo 'Setting up repository …'
   sudo install -m 0755 -d /etc/apt/keyrings
+  sudo rm -f /etc/apt/keyrings/docker.gpg
   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
   sudo chmod a+r /etc/apt/keyrings/docker.gpg
   echo \
@@ -30,13 +31,26 @@ else
     docker-buildx-plugin \
     docker-ce \
     docker-ce-cli \
-    docker-compose-plugin
+    docker-compose-plugin \
+    golang-docker-credential-helpers
 
   echo 'Fixing permissions …'
   sudo groupadd docker
   sudo usermod -aG docker "${USER}"
   success 'Done.'
   echo 'Please restart your computer for the new permissions to take effect. (Logging out and back in is not enough.)'
+fi
+linefeed
+
+echo 'Installing Podman …'
+PACKAGE_REPORT=$(dpkg -s podman)
+if echo "$PACKAGE_REPORT" | grep -q 'install ok installed'; then
+  success 'Already installed.';
+else
+  echo 'Installing Podman …'
+  sudo apt-get update
+  sudo apt-get install -y \
+    podman
 fi
 linefeed
 

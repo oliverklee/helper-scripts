@@ -5,7 +5,14 @@
 source 'output.sh'
 
 echo 'Installing Ruby …'
-sudo apt-get install -y --no-install-recommends --no-install-suggests libyaml-dev ruby ruby-dev ruby-rubygems
+sudo apt-get install -y --no-install-recommends --no-install-suggests \
+  libyaml-dev \
+  postgresql-client \
+  postgresql-client-common \
+  ruby \
+  ruby-dev \
+  ruby-rubygems
+
 success 'Done.'
 linefeed
 
