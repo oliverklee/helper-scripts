@@ -6,13 +6,15 @@ source 'output.sh'
 
 echo 'Installing local PHP …'
 sudo apt-get install -y --no-install-recommends --no-install-suggests \
-"php-cli" \
-"php-common" \
-"php-curl" \
-"php-intl" \
-"php-mbstring" \
-"php-xdebug" \
-"php-xml" \
-"php-zip"
+  php-cli \
+  php-common \
+  php-curl \
+  php-gd \
+  php-intl \
+  php-mbstring \
+  php-mysqli \
+  php-xdebug \
+  php-xml \
+  php-zip
 success 'Done.'
 linefeed

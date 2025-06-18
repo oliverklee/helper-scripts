@@ -9,6 +9,7 @@ linefeed
 
 echo 'Installing the most relevant packages …'
 sudo apt-get install -y --no-install-recommends --no-install-suggests \
+  ack \
   apt-show-versions \
   aptitude \
   ausweisapp2 \
@@ -16,16 +17,30 @@ sudo apt-get install -y --no-install-recommends --no-install-suggests \
   curl \
   djvulibre-bin \
   etckeeper \
+  flatpak \
   fonts-roboto \
   gscan2pdf \
+  hyphen-de \
   joe \
+  kamoso \
   kate \
   krusader \
+  kwayland-integration \
+  libreoffice \
+  libreoffice-kf5 \
+  libreoffice-l10n-de \
+  libreoffice-plasma \
+  libreoffice-style-breeze \
   ncdu \
+  okular \
+  okular-extra-backends \
   pdfarranger \
-  pdftk \
+  pdftk-java \
   ppa-purge \
+  snapd \
   speech-dispatcher \
+  tesseract-ocr-deu \
+  tldr \
   ttf-mscorefonts-installer \
   unpaper \
   wget \
