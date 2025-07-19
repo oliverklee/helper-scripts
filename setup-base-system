@@ -82,6 +82,16 @@ else
 fi
 linefeed
 
+echo 'Adding the Google Chrome sources …'
+CHROME_SOURCES='/etc/apt/sources.list.d/google-chrome.list'
+if [ -f "${CHROME_SOURCES}" ]; then
+  success 'Already set up.';
+else
+  echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee "${CHROME_SOURCES}" > /dev/null
+  success 'Done.'
+fi
+linefeed
+
 echo 'Installing Thunderbird …'
 PACKAGE_REPORT=$(snap list)
 if echo "${PACKAGE_REPORT}" | grep -q '^thunderbird '; then
