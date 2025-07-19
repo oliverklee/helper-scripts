@@ -93,8 +93,8 @@ fi
 linefeed
 
 echo 'Installing Thunderbird …'
-PACKAGE_REPORT=$(snap list)
-if echo "${PACKAGE_REPORT}" | grep -q '^thunderbird '; then
+PACKAGE_REPORT=$(which thunderbird)
+if echo "${PACKAGE_REPORT}" | grep -q '/thunderbird'; then
   success 'Already installed.';
 else
   sudo snap install thunderbird
