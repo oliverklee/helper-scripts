@@ -36,7 +36,9 @@
 !/setup-phpstorm
 !/setup-ruby
 !/setup-social
+!/setup-thunderbird
 !/shebang.sh
+!/thunderbird-apt.dist
 !/update-everything
 !/update-zoom.sh
 !/upstream
