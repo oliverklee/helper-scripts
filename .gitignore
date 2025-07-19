@@ -38,6 +38,7 @@
 !/setup-social
 !/setup-thunderbird
 !/shebang.sh
+!/show-linux-version
 !/thunderbird-apt.dist
 !/update-everything
 !/update-zoom.sh

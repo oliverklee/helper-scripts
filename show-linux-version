@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Sets up personal settings for Oliver Klee (me).
+
+source 'output.sh'
+
+linefeed
+
+# show the Linux kernel version
+uname -r
+linefeed
+
+# show the Linux distribution name and version
+lsb_release -a
+linefeed
