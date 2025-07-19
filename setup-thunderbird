@@ -9,7 +9,8 @@ PACKAGE_REPORT=$(which thunderbird)
 if echo "${PACKAGE_REPORT}" | grep -q '/thunderbird'; then
   success 'Already installed.';
 else
-  sudo cp thunderbird-apt.dist /etc/apt/preferences.d/thunderbird
+  DIR=$(dirname "$0")
+  sudo cp "${DIR}/thunderbird-apt.dist" /etc/apt/preferences.d/thunderbird
   sudo add-apt-repository -y ppa:mozillateam/ppa
   sudo aptitude update
   sudo apt-get install -y --no-install-recommends --no-install-suggests \
