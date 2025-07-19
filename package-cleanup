@@ -4,3 +4,5 @@
 # This is particularly helpful after an Ubuntu upgrade.
 
 dpkg -l | awk '/^rc/ {system("sudo aptitude -y purge "$2"")}'
+
+sudo apt-get autopurge -y --purge
