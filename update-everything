@@ -65,3 +65,13 @@ if echo "${PHIVE_REPORT}" | grep -q '/phive'; then
 else
   echo 'Not installed.';
 fi
+linefeed
+
+echo 'Updating the Heroku CLU …'
+HEROKU_REPORT=$(which heroku)
+if echo "${HEROKU_REPORT}" | grep -q '/bin/heroku'; then
+  heroku update;
+  success 'Done.'
+else
+  echo 'Not installed.';
+fi

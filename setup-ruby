@@ -45,13 +45,13 @@ fi
 linefeed
 
 echo 'Installing the Heroku CLI …'
-PACKAGE_REPORT=$(dpkg -s heroku)
-if echo "$PACKAGE_REPORT" | grep -q 'install ok installed'; then
+PACKAGE_REPORT=$(which heroku)
+if echo "$PACKAGE_REPORT" | grep -q '/bin/heroku'; then
   success 'Already installed.';
 else
-  curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
+  curl curl https://cli-assets.heroku.com/install.sh | sh
   success 'Done.'
-  linefeed
 fi
+linefeed
 
 setup-containers
