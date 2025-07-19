@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Installs Thunderbird as a DEB from the Mozilla PPA. This allows using GPG when the key is stored on a YubiKey.
+
+source 'output.sh'
+
+echo 'Installing Thunderbird …'
+PACKAGE_REPORT=$(which thunderbird)
+if echo "${PACKAGE_REPORT}" | grep -q '/thunderbird'; then
+  success 'Already installed.';
+else
+  sudo cp thunderbird-apt.dist /etc/apt/preferences.d/thunderbird
+  sudo add-apt-repository -y ppa:mozillateam/ppa
+  sudo aptitude update
+  sudo apt-get install -y --no-install-recommends --no-install-suggests \
+    thunderbird \
+    thunderbird-locale-de
+  success 'Done.'
+fi

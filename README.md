@@ -40,6 +40,7 @@ Most of these scripts probably are Ubuntu-specific.
 | `setup-phpstorm`         | installs PhpStorm                                       |
 | `setup-ruby`             | Installs Ruby, dip, RubyMine and the Heroku CLI         |
 | `setup-social`           | installs Discord, Slack and Zoom                        |
+| `setup-thunderbird`      | installs Thunderbird via .deb for GPG via YubiKey       |
 | `update-everything`      | updates all DEB packages and snaps                      |
 
 ### Libraries included by the other scripts
