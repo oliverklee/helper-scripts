@@ -32,6 +32,7 @@ Most of these scripts probably are Ubuntu-specific.
 | `setup-composer`         | installs Composer (but not PHP)                         |
 | `setup-containers`       | installs Docker (CE)                                    |
 | `setup-ddev`             | installs DDEV (and Docker CE)                           |
+| `setup-dropbox`          | installs Dropbox                                        |
 | `setup-git`              | installs and configures git                             |
 | `setup-gpg`              | installs and configures GPG                             |
 | `setup-local-php`        | sets up a local PHP version using the system packages   |

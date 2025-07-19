@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Installs Dropbox
+
+source 'output.sh'
+
+echo 'Installing Dropbox …'
+PACKAGE_REPORT=$(dpkg -s dropbox)
+if echo "$PACKAGE_REPORT" | grep -q 'install ok installed'; then
+  success 'Already installed.';
+else
+  FILENAME='dropbox_2025.05.20_amd64.deb'
+  curl -O "https://linux.dropbox.com/packages/ubuntu/${FILENAME}" --output-dir /tmp
+  sudo apt install -y "/tmp/${FILENAME}"
+  rm "/tmp/${FILENAME}"
+  success 'Done.'
+fi

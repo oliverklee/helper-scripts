@@ -28,6 +28,7 @@
 !/setup-composer
 !/setup-containers
 !/setup-ddev
+!/setup-dropbox
 !/setup-git
 !/setup-gpg
 !/setup-local-php
