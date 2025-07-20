@@ -1,11 +1,15 @@
 Package: thunderbird
-Pin: origin ppa.launchpadcontent.net
-Pin-Priority: 999
+Pin: release o=LP-PPA-mozillateam
+Pin-Priority: 1001
 
 Package: thunderbird-locale-de
-Pin: origin ppa.launchpadcontent.net
-Pin-Priority: 999
+Pin: release o=LP-PPA-mozillateam
+Pin-Priority: 10019
 
 Package: thunderbird-locale-nl
-Pin: origin ppa.launchpadcontent.net
-Pin-Priority: 999
+Pin: release o=LP-PPA-mozillateam
+Pin-Priority: 1001
+
+Package: thunderbird
+Pin: version 2:1snap*
+Pin-Priority: -1
